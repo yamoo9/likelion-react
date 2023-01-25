@@ -2,7 +2,7 @@
 name: Question
 about: 질문 템플릿
 title: "\U0001F64B\U0001F3FB 간단 명료한 제목 작성"
-labels: 질문
+labels: ''
 assignees: yamoo9
 
 ---
