@@ -3,7 +3,7 @@
   "name": "likelion-react-01-react-browser",
   "version": "0.0.1",
   "scripts": {
-    "start": "npm run dev -- --open",
+    "start": "node backend/server.js --open",
     "dev": "nodemon backend/server.js"
   },
   "devDependencies": {
