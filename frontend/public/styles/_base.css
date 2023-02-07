@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  font: 1rem/1.5 Pretendard, sans-serif;
+  background: #f8f8fb;
+  color: #3b4e72;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.2em;
+  font-weight: 400;
+}
+
+h1 {
+  font-weight: 200;
+}
+
+p {
+  margin-top: 0;
+}
+
+ul {
+  margin-top: 0;
+  padding-left: 1em;
+}

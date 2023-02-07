@@ -1,0 +1,124 @@
+{
+  "recommendations": [
+    
+    /* HTML --------------------------------------------------------------------- */
+    
+    // "HTMLHint.vscode-htmlhint",
+    // "formulahendry.auto-close-tag",
+    // "formulahendry.auto-rename-tag",
+    // "javad-ghased.yourlorem",
+    
+    /* CSS ---------------------------------------------------------------------- */
+    
+    // "Zignd.html-css-class-completion",
+    // "pucelle.vscode-css-navigation",
+    // "clinyong.vscode-css-modules",
+    // "pranaygp.vscode-css-peek",
+    // "bestvow.css-compressor",
+
+    /* PostCSS ------------------------------------------------------------------ */
+
+    // "mrmlnc.vscode-postcss-sorting",
+    // "csstools.postcss",
+    
+    /* Sass --------------------------------------------------------------------- */
+
+    // "syler.sass-indented",
+
+    /* Tailwind CSS ------------------------------------------------------------- */
+
+    // "austenc.tailwind-docs",
+    // "bourhaouta.tailwindshades",
+    // "bradlc.vscode-tailwindcss",
+
+    /* JavaScript --------------------------------------------------------------- */
+    
+    // "meganrogge.template-string-converter",
+    // "NuclleaR.vscode-extension-auto-import",
+    // "Tobermory.es6-string-html",
+
+    /* TypeScript --------------------------------------------------------------- */
+
+    // "paulshen.paul-typescript-toolkit",
+    // "loiane.ts-extension-pack",
+    // "quicktype.quicktype",
+    
+    /* Node.js ------------------------------------------------------------------ */
+    
+    // "chrisbibby.hide-node-modules",
+    // "jasonnutter.search-node-modules",
+    // "mikestead.dotenv",
+    
+    /* React -------------------------------------------------------------------- */
+    
+    // "styled-components.vscode-styled-components",
+    // "sanfilippopablo.react-component-refactor",
+    // "angryobject.react-pure-to-class-vscode",
+    // "dsznajder.es7-react-js-snippets",
+    // "riazxrazor.html-to-jsx",
+    // "infarkt.css-to-jss",
+
+    /* Linter, Formatter -------------------------------------------------------- */
+    
+    // "stylelint.vscode-stylelint",
+    // "dbaeumer.vscode-eslint",
+    // "esbenp.prettier-vscode",
+    // "rebornix.toggle",
+
+    /* Test --------------------------------------------------------------------- */
+    
+    // "Orta.vscode-jest",
+    // "ZixuanChen.vitest-explorer",
+
+    /* SVG ---------------------------------------------------------------------- */
+
+    // "smatDnepr.svg-sprite-viewer-generator",
+    // "cssho.vscode-svgviewer",
+    
+    /* Colors ------------------------------------------------------------------- */
+
+    // "IBM.output-colorizer",
+    // "naumovs.color-highlight",
+    // "royaction.color-manager",
+    // "kamikillerto.vscode-colorize",
+    
+    /* Snippets ----------------------------------------------------------------- */
+
+    // "robole.snippets-ranger",
+    
+    /* Comments ----------------------------------------------------------------- */
+    
+    // "ChakrounAnas.turbo-console-log",
+    // "philsinatra.nested-comments",
+    // "plibither8.remove-comments",
+    // "stackbreak.comment-divider",
+
+    /* Path --------------------------------------------------------------------- */
+    
+    // "christian-kohler.npm-intellisense",
+    // "christian-kohler.path-intellisense",
+
+    /* Editor ------------------------------------------------------------------- */
+
+    // "brittanychiang.halcyon-vscode",
+    // "PKief.material-icon-theme",
+    // "EditorConfig.EditorConfig",
+    // "sculove.translator",
+
+    /* Git ---------------------------------------------------------------------- */
+
+    // "GitHub.vscode-pull-request-github",
+    // "donjayamanne.githistory",
+    // "eamodio.gitlens",
+    
+    /* Markdown ----------------------------------------------------------------- */
+    
+    // "shd101wyy.markdown-preview-enhanced",
+    // "jebbs.markdown-extended",
+
+    /* RESTful Client ----------------------------------------------------------- */
+
+    // "rangav.vscode-thunder-client",
+
+  ]
+}

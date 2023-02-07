@@ -1,0 +1,21 @@
+{
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Node.js 런타임 디버깅",
+      "cwd": "${workspaceFolder}",
+      "program": "${file}",
+      "skipFiles": ["<node_internals>/**"],
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Chrome 브라우저 디버깅",
+      "url": "http://localhost:6006",
+      "webRoot": "${workspaceFolder}",
+      "cwd": "${workspaceFolder}",
+      "skipFiles": ["<node_internals>/**"],
+    }
+  ],
+}
