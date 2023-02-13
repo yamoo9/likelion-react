@@ -24,7 +24,7 @@
 
 /* -------------------------------------------------------------------------- */
 
-let state = {
+export let state = {
   headline: '웹브라우저 환경에서 React 라이브러리 시작하기',
   description:
     'React 라이브러리 코드가 웹 브라우저 환경에서 어떻게 해석되고 작동되는 지 살펴봅니다.',
@@ -40,7 +40,7 @@ function reset() {
   rootElement.innerHTML = '';
 }
 
-function render(state) {
+export function render(state) {
   reset();
 
   const container = document.createElement('div');
@@ -64,9 +64,7 @@ function render(state) {
   rootElement.append(container);
 }
 
-render(state);
-
-function update(newState) {
+export function update(newState) {
 
   if (typeof newState.subjects === 'string') {
     let newSubject = newState.subjects;
@@ -84,5 +82,3 @@ function update(newState) {
 
   render(state);
 }
-
-globalThis.update = update;
