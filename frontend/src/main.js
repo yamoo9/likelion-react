@@ -22,10 +22,16 @@ const app = createElement(
     'class': 'app',
     'aria-label': 'Like React App'
   }, 
-  createElement('h1', {}, 'hello App')
+  createElement('h1', {}, 'hello App'),
+  createElement('p', {}, 'blab blab blab'),
+  createElement('ul', {}, 
+    createElement('li', {}, 'item 1'),
+    createElement('li', {}, 'item 2'),
+    createElement('li', {}, 'item 3'),
+  ),
 );
 
-console.log(app);
+document.getElementById('root').append(app);
 
 // console.log(state);
 
