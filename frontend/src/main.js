@@ -25,6 +25,7 @@ import { Group } from './learn/react.components.js';
 // React루트객체.렌더링(React 엘리먼트);
 
 const reactDomRoot = ReactDOM.createRoot(document.getElementById('root'));
+
 reactDomRoot.render(
   // HTML, XML
   <div role="group" lang="en">Group Element</div>
