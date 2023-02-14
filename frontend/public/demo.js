@@ -5,11 +5,24 @@
 
 /* 함수 컴포넌트 ------------------------------------------------------------------ */
 
-function AppLogo() {
+function AppLogo(props) {
+  
+  let imageSource = '/assets/logo/';
+  imageSource += props.outline ? 'outline' : 'fill';
+  imageSource += props.color === 'white' ? '-white' : '-red';
+
+  let ext = 'svg';
+
+  return (
+    <img src={`${imageSource}.${ext}`} alt="Netflix" />
+  )
+}
+
+function AppHomeLink() {
   return (
     <h1>
       <a href="https://netflix.com/">
-        <img src="" alt="" /> 넷플릭스
+        
       </a>
     </h1>
   )
@@ -46,6 +59,10 @@ function AppHeader() {
   return (
     <header>
       <AppLogo />
+      <AppLogo outline />
+      <AppLogo color="white" />
+      <AppLogo color="white" outline />
+
       <AppSearch />
       <AppNav />    
     </header>
