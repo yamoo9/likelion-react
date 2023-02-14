@@ -55,18 +55,51 @@ function AppNav() {
   )
 }
 
-function AppHeader() {
-  return (
-    <header>
-      <AppLogo />
-      <AppLogo outline />
-      <AppLogo color="white" />
-      <AppLogo color="white" outline />
+class AppHeader extends React.Component {
 
-      <AppSearch />
-      <AppNav />    
-    </header>
-  )
+  state = {
+    outline: false,
+    color: 'red'
+  }
+
+  render() {
+    const { logoType } = this.props;
+
+    return (
+      <header>
+        <AppLogo
+          outline={logoType.shape.includes('outline') ? true : false}
+          color={logoType.color}
+        />
+  
+        <div role="group">
+          <button
+            type="button"
+            onClick={() => {
+              this.setState({
+                outline: !this.state.outline
+              })
+            }}
+          >
+            change logo type is outline
+          </button>
+          <button 
+            type="button"
+            onClick={() => {
+              console.log('clicked button 2');
+            }}
+          >change logo type is fill</button>
+        </div>
+  
+        {/* <AppLogo outline /> */}
+        {/* <AppLogo color="white" /> */}
+        {/* <AppLogo color="white" outline /> */}
+  
+        <AppSearch />
+        <AppNav />
+      </header>
+    );
+  }
 }
 
 function AppMain() {
@@ -104,9 +137,10 @@ class App extends React.Component {
     // 상태 업데이트 → 다시 렌더링!!!
     // 선언형 프로그래밍
     this.state = {
-      headline: '',
-      description: '',
-      subjects: []
+      logoType: {
+        shape: 'outline',
+        color: 'red'
+      }
     }
   }
 
@@ -115,7 +149,7 @@ class App extends React.Component {
 
     return (
       <div className="app">
-        <AppHeader />
+        <AppHeader logoType={this.state.logoType} />
         <AppMain />
         <AppFooter />
       </div>
