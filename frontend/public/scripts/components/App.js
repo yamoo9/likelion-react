@@ -19,7 +19,7 @@ function _typeof(obj) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 function _classCallCheck(instance, Constructor) {
   if (!_instanceof(instance, Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -163,4 +163,4 @@ var App = /*#__PURE__*/function (_React$Component) {
   return App;
 }(React.Component);
 var _default = App;
-exports.default = _default;
+exports["default"] = _default;
