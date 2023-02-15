@@ -1,9 +1,14 @@
 import App from './components/App.js';
 
-const reactDomRoot = ReactDOM.createRoot(document.getElementById('root'));
+// ES 구조 분해 할당
+// 번들링 (트리 쉐이킹)
+const { StrictMode } = React;
+const { createRoot } = ReactDOM;
+
+const reactDomRoot = createRoot(document.getElementById('root'));
 
 reactDomRoot.render(
-  <React.StrictMode>
+  <StrictMode>
     <App />
-  </React.StrictMode>
+  </StrictMode>
 );
