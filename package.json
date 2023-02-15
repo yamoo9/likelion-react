@@ -6,7 +6,7 @@
     "start": "run-p serve watch",
     "serve": "node backend/server.js --open",
     "dev": "nodemon backend/server.js",
-    "compile": "babel frontend/src --out-dir frontend/public/scripts",
+    "compile": "babel frontend/src --out-dir frontend/public/scripts -x .js,.ts",
     "watch": "npm run compile -- --watch"
   },
   "devDependencies": {
