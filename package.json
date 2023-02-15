@@ -4,9 +4,13 @@
   "version": "0.0.1",
   "scripts": {
     "start": "node backend/server.js --open",
-    "dev": "nodemon backend/server.js"
+    "dev": "nodemon backend/server.js",
+    "compile": "babel frontend/src -d frontend/public/scripts"
   },
   "devDependencies": {
+    "@babel/cli": "7.20.7",
+    "@babel/core": "7.20.12",
+    "@babel/preset-env": "7.20.2",
     "live-server": "1.2.2",
     "nodemon": "2.0.20"
   }
