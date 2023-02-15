@@ -1,18 +1,20 @@
 ###### EUID ╳ Likelion
 
-# React 컴포넌트 Props & States
+# JSX & React
 
 학습 저장소 자료 복사 ([degit](https://github.com/Rich-Harris/degit#readme) 활용)
 
 ```sh
-degit yamoo9/likelion-react#03-class-component-state 03-class-component-state
+degit yamoo9/likelion-react#03-jsx-in-depth 03-jsx-in-depth
 ```
 
 ## 학습 목표
 
-React 컴포넌트의 Props, States에 대해 살펴봅니다.
+XML과 유사한 문법을 제공하는 ECMAScript 확장인 JSX에 대해 학습합니다.
 
-- React 컴포넌트 Props 객체
-- React 컴포넌트의 상태(State) 관리
-- React 이벤트 핸들링
-- 리-렌더링 알고리즘 (Reconciliation)
+- React 그리고 JSX
+- JSX vs. HTML 구조 설계
+- JSX의 역할 (creating React Element)
+- JSX 컴파일러
+- Babel
+- TypeScript
