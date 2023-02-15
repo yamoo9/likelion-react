@@ -4,6 +4,7 @@ class App extends React.Component {
 
     this.state = {
       headline: 'React Application',
+      isDisabled: false,
     };
 
     this.handleChangeHeadline = this.handleChangeHeadline.bind(this);
@@ -12,6 +13,7 @@ class App extends React.Component {
   handleChangeHeadline() {
     this.setState({
       headline: 'NEW HEADLINE! 😃',
+      isDisabled: true,
     });
   }
 
@@ -19,7 +21,7 @@ class App extends React.Component {
     return (
       <div data-component="App">
         <h1>{this.state.headline}</h1>
-        <button type="button" onClick={this.handleChangeHeadline}>
+        <button disabled={this.state.isDisabled} type="button" onClick={this.handleChangeHeadline}>
           헤드라인 업데이트
         </button>
       </div>
