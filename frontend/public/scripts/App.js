@@ -14,6 +14,7 @@ function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _ty
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 import LogIn from './pages/LogIn.js';
 import Browse from './pages/Browse.js';
+import Home from './pages/Home.js';
 var App = /*#__PURE__*/function (_React$Component) {
   _inherits(App, _React$Component);
   var _super = _createSuper(App);
@@ -53,15 +54,21 @@ var App = /*#__PURE__*/function (_React$Component) {
       // error ?? console.log('현재 앱에는 오류(error)가 발생하지 않았습니다.');
 
       // 옵셔널 체이닝을 사용해 조건 처리해봅니다.
+      // if (error) {
+      //   if (typeof error.log === 'function') {
+      //     error.log();
+      //   }
+      // }
+
       // error && typeof error.log === 'function' && error.log();
+
+      // error.log?.();
 
       // let error = {
       //   log() {
       //     console.log('this is logger')
       //   }
       // }
-
-      // error.log?.();
 
       // 조건 처리
       // 문을 사용할 것인가?
@@ -103,6 +110,7 @@ var App = /*#__PURE__*/function (_React$Component) {
           role: "alert"
         }, this.state.hasError.message);
       }
+      return /*#__PURE__*/React.createElement(Home, null);
       return /*#__PURE__*/React.createElement("div", {
         className: "App"
       }, /*#__PURE__*/React.createElement("h1", null, headline), /*#__PURE__*/React.createElement("button", {
