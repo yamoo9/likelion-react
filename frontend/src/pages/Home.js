@@ -1,13 +1,19 @@
-import { likeLionMembers } from '../data/likeLionMembers.js';
-
 class Home extends React.Component {
-  
+
   state = {
-    members: likeLionMembers
-  };  
+    members: this.props.likeLionMembers ?? [
+      { id: 1, name: 'a'},
+      { id: 2, name: 'b'},
+      { id: 3, name: 'c'},
+    ]
+  };
 
   handleFilterLab = () => {
-    console.log('filtering');
+    this.setState({
+      members: this.state.members.filter(member => {
+        return member.name.includes('c')
+      })
+    });
   }
 
   render() {
@@ -20,13 +26,13 @@ class Home extends React.Component {
           style={{ marginBottom: 10 }}
           onClick={this.handleFilterLab}
         >
-          10조 모여!
+          A, C 너네들 좀 따라와!
         </button>
         <ul>
           {
             this.state.members.map(({ id, name, gender }) => 
               <li key={id}>
-                <p><span>{ gender.includes('여성') ? '🙆🏻‍♀️' : '🙆🏻‍♂️' }</span> {name}</p>
+                <p><span>{ gender?.includes('여성') ? '🙆🏻‍♀️' : '🙆🏻‍♂️' }</span> {name}</p>
               </li>
             )
           }

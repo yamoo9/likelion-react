@@ -15,6 +15,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 import LogIn from './pages/LogIn.js';
 import Browse from './pages/Browse.js';
 import Home from './pages/Home.js';
+import { likeLionMembers } from './data/likeLionMembers.js';
 var App = /*#__PURE__*/function (_React$Component) {
   _inherits(App, _React$Component);
   var _super = _createSuper(App);
@@ -30,7 +31,8 @@ var App = /*#__PURE__*/function (_React$Component) {
       isPaid: true,
       isToggle: false,
       isLoading: !true,
-      hasError: null
+      hasError: null,
+      likeLionMembers: likeLionMembers
     });
     _defineProperty(_assertThisInitialized(_this), "originalHeadline", _this.state.headline);
     _defineProperty(_assertThisInitialized(_this), "willUpdateHeadline", 'NEW HEADLINE! 😃');
@@ -57,7 +59,8 @@ var App = /*#__PURE__*/function (_React$Component) {
         isToggle = _this$state.isToggle,
         isPaid = _this$state.isPaid,
         headline = _this$state.headline,
-        hasError = _this$state.hasError;
+        hasError = _this$state.hasError,
+        likeLionMembers = _this$state.likeLionMembers;
       if (isLoading) {
         return /*#__PURE__*/React.createElement("div", {
           role: "alert"

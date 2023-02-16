@@ -1,6 +1,7 @@
 import LogIn from './pages/LogIn.js';
 import Browse from './pages/Browse.js';
 import Home from './pages/Home.js';
+import { likeLionMembers } from './data/likeLionMembers.js';
 
 class App extends React.Component {
   state = {
@@ -9,6 +10,7 @@ class App extends React.Component {
     isToggle: false,
     isLoading: !true,
     hasError: null,
+    likeLionMembers
   };
 
   originalHeadline = this.state.headline;
@@ -29,7 +31,14 @@ class App extends React.Component {
   };
 
   render() {
-    const { isLoading, isToggle, isPaid, headline, hasError } = this.state;
+    const { 
+      isLoading, 
+      isToggle, 
+      isPaid, 
+      headline, 
+      hasError, 
+      likeLionMembers 
+    } = this.state;
 
     if (isLoading) {
       return <div role="alert">데이터 로딩 중...</div>;
