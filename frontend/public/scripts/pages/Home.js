@@ -43,11 +43,18 @@ var Home = /*#__PURE__*/function (_React$Component) {
       // 데이터 분석
       // 내가 무얼을 해야 하나?
       // - 105개의 데이터를 순회해서 lab의 갯수가 몇 개인지를 확인해야 한다.
+
+      var labSet = new Set();
+      this.state.members.forEach(function (_ref) {
+        var lab = _ref.lab;
+        return labSet.add(lab);
+      });
+
       // 그걸 하려면 어떤 로직을 짜야 하나?
-      // - 배열??? 아니면 다른 데이터를??
+      // - 배열??? 아니면 다른 데이터를?? 🤔
       // 그러면 결과 값은 무엇을 내보내야 하나?
       // - 랩의 갯수
-      return 11;
+      return labSet.size;
     }
   }, {
     key: "render",
@@ -68,11 +75,11 @@ var Home = /*#__PURE__*/function (_React$Component) {
             return _this2.handleFilterLab(labIndex);
           }
         }, "LAB ", labIndex);
-      })), /*#__PURE__*/React.createElement("ul", null, (_this$state = this.state) === null || _this$state === void 0 ? void 0 : _this$state.members.map(function (_ref) {
-        var id = _ref.id,
-          lab = _ref.lab,
-          name = _ref.name,
-          gender = _ref.gender;
+      })), /*#__PURE__*/React.createElement("ul", null, (_this$state = this.state) === null || _this$state === void 0 ? void 0 : _this$state.members.map(function (_ref2) {
+        var id = _ref2.id,
+          lab = _ref2.lab,
+          name = _ref2.name,
+          gender = _ref2.gender;
         return /*#__PURE__*/React.createElement("li", {
           key: id
         }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("b", null, lab), " ", /*#__PURE__*/React.createElement("span", null, gender !== null && gender !== void 0 && gender.includes('여성') ? '🙆🏻‍♀️' : '🙆🏻‍♂️'), " ", name));
