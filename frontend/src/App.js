@@ -48,7 +48,7 @@ class App extends React.Component {
       return <div role="alert">{hasError.message}</div>;
     }
 
-    return <Home />;
+    return <Home likeLionMembers={likeLionMembers} />;
 
     return (
       <div className="App">

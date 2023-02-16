@@ -71,7 +71,9 @@ var App = /*#__PURE__*/function (_React$Component) {
           role: "alert"
         }, hasError.message);
       }
-      return /*#__PURE__*/React.createElement(Home, null);
+      return /*#__PURE__*/React.createElement(Home, {
+        likeLionMembers: likeLionMembers
+      });
       return /*#__PURE__*/React.createElement("div", {
         className: "App"
       }, /*#__PURE__*/React.createElement("h1", null, headline), /*#__PURE__*/React.createElement("button", {

@@ -24,24 +24,13 @@ var Home = /*#__PURE__*/function (_React$Component) {
     }
     _this = _super.call.apply(_super, [this].concat(args));
     _defineProperty(_assertThisInitialized(_this), "state", {
-      members: (_this$props$likeLionM = _this.props.likeLionMembers) !== null && _this$props$likeLionM !== void 0 ? _this$props$likeLionM : [{
-        id: 1,
-        name: 'a'
-      }, {
-        id: 2,
-        name: 'b'
-      }, {
-        id: 3,
-        name: 'c'
-      }]
+      members: (_this$props$likeLionM = _this.props.likeLionMembers) !== null && _this$props$likeLionM !== void 0 ? _this$props$likeLionM : []
     });
     _defineProperty(_assertThisInitialized(_this), "handleFilterLab", function () {
       _this.setState({
         members: _this.state.members.filter(function (member) {
-          // return 되는 결과 값이 true인 것만 필터링 한다.
-          // A && B ?
-          // A || B ?
-          return member.name.includes('c') || member.name.includes('a');
+          // 로직
+          return false;
         })
       });
     });
@@ -53,16 +42,17 @@ var Home = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h2", null, "\uBA4B\uC7C1\uC774 \uC0AC\uC790\uCC98\uB7FC \uD504\uB860\uD2B8\uC5D4\uB4DC \uC2A4\uCFE8 4\uAE30 \uBA64\uBC84"), /*#__PURE__*/React.createElement("button", {
         type: "button",
         style: {
-          marginBottom: 10
+          marginBottom: 20
         },
         onClick: this.handleFilterLab
-      }, "A, C \uB108\uB124\uB4E4 \uC880 \uB530\uB77C\uC640!"), /*#__PURE__*/React.createElement("ul", null, this.state.members.map(function (_ref) {
+      }, "LAB 10 \uC870 \uBAA8\uC5EC!"), /*#__PURE__*/React.createElement("ul", null, this.state.members.map(function (_ref) {
         var id = _ref.id,
+          lab = _ref.lab,
           name = _ref.name,
           gender = _ref.gender;
         return /*#__PURE__*/React.createElement("li", {
           key: id
-        }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("span", null, gender !== null && gender !== void 0 && gender.includes('여성') ? '🙆🏻‍♀️' : '🙆🏻‍♂️'), " ", name));
+        }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("b", null, lab), " ", /*#__PURE__*/React.createElement("span", null, gender !== null && gender !== void 0 && gender.includes('여성') ? '🙆🏻‍♀️' : '🙆🏻‍♂️'), " ", name));
       })));
     }
   }]);
