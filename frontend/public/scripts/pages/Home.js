@@ -12,11 +12,11 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+import { likeLionMembers } from '../data/likeLionMembers.js';
 var Home = /*#__PURE__*/function (_React$Component) {
   _inherits(Home, _React$Component);
   var _super = _createSuper(Home);
   function Home() {
-    var _this$props$likeLionM;
     var _this;
     _classCallCheck(this, Home);
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
@@ -24,13 +24,9 @@ var Home = /*#__PURE__*/function (_React$Component) {
     }
     _this = _super.call.apply(_super, [this].concat(args));
     _defineProperty(_assertThisInitialized(_this), "state", {
-      members: (_this$props$likeLionM = _this.props.likeLionMembers) !== null && _this$props$likeLionM !== void 0 ? _this$props$likeLionM : []
+      members: likeLionMembers
     });
     _defineProperty(_assertThisInitialized(_this), "handleFilterLab", function (labNumber) {
-      // 나는 무슨 일을 해야 하는가?
-      // 데이터 분석
-      // 어떻게 걸러낼 것인가?
-      // 걸러내는 프로그래밍 로직은?
       _this.setState({
         members: _this.state.members.filter(function (member) {
           return member.lab === labNumber;
@@ -58,23 +54,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this2.handleFilterLab(4);
         }
-      }, "LAB 4\uC870 \uBAA8\uC5EC!"), /*#__PURE__*/React.createElement("button", {
-        type: "button",
-        style: {
-          marginBottom: 20
-        },
-        onClick: function onClick() {
-          return _this2.handleFilterLab(10);
-        }
-      }, "LAB 10\uC870 \uBAA8\uC5EC!"), /*#__PURE__*/React.createElement("button", {
-        type: "button",
-        style: {
-          marginBottom: 20
-        },
-        onClick: function onClick() {
-          return _this2.handleFilterLab(2);
-        }
-      }, "LAB 2\uC870 \uBAA8\uC5EC!")), /*#__PURE__*/React.createElement("ul", null, (_this$state = this.state) === null || _this$state === void 0 ? void 0 : _this$state.members.map(function (_ref) {
+      }, "LAB 4\uC870 \uBAA8\uC5EC!")), /*#__PURE__*/React.createElement("ul", null, (_this$state = this.state) === null || _this$state === void 0 ? void 0 : _this$state.members.map(function (_ref) {
         var id = _ref.id,
           lab = _ref.lab,
           name = _ref.name,
