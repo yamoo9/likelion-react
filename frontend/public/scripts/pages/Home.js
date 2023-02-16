@@ -41,21 +41,25 @@ var Home = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var products = this.state.products;
-      console.log(products[0]);
-      console.log(products[1]);
-      return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h2", null, "\uB9AC\uC2A4\uD2B8 \uB80C\uB354\uB9C1"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("figure", {
-        "data-id": products[0].id
-      }, /*#__PURE__*/React.createElement("img", {
-        src: products[0].image,
-        height: 100,
-        alt: true
-      }), /*#__PURE__*/React.createElement("figcaption", null, /*#__PURE__*/React.createElement("span", null, products[0].name), /*#__PURE__*/React.createElement("span", null, products[0].price)))), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("figure", {
-        "data-id": products[1].id
-      }, /*#__PURE__*/React.createElement("img", {
-        src: products[1].image,
-        height: 100,
-        alt: true
-      }), /*#__PURE__*/React.createElement("figcaption", null, /*#__PURE__*/React.createElement("span", null, products[1].name), /*#__PURE__*/React.createElement("span", null, products[1].price))))));
+      var figcaptionStyle = {
+        display: 'flex',
+        gap: 12
+      };
+      return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h2", null, "\uB9AC\uC2A4\uD2B8 \uB80C\uB354\uB9C1"), /*#__PURE__*/React.createElement("ul", null, products.map(function (_ref) {
+        var id = _ref.id,
+          name = _ref.name,
+          price = _ref.price,
+          image = _ref.image;
+        return /*#__PURE__*/React.createElement("li", {
+          key: id
+        }, /*#__PURE__*/React.createElement("figure", null, /*#__PURE__*/React.createElement("img", {
+          src: image,
+          height: 100,
+          alt: ""
+        }), /*#__PURE__*/React.createElement("figcaption", {
+          style: figcaptionStyle
+        }, /*#__PURE__*/React.createElement("span", null, name), /*#__PURE__*/React.createElement("span", null, price))));
+      })));
     }
   }]);
   return Home;
