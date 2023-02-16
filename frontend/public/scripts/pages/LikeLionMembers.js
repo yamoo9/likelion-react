@@ -13,12 +13,12 @@ function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key i
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 import { likeLionMembers } from '../data/likeLionMembers.js';
-var Home = /*#__PURE__*/function (_React$Component) {
-  _inherits(Home, _React$Component);
-  var _super = _createSuper(Home);
-  function Home() {
+var LikeLionMembers = /*#__PURE__*/function (_React$Component) {
+  _inherits(LikeLionMembers, _React$Component);
+  var _super = _createSuper(LikeLionMembers);
+  function LikeLionMembers() {
     var _this;
-    _classCallCheck(this, Home);
+    _classCallCheck(this, LikeLionMembers);
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
@@ -37,7 +37,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
     });
     return _this;
   }
-  _createClass(Home, [{
+  _createClass(LikeLionMembers, [{
     key: "calcLabCount",
     value: function calcLabCount() {
       // 데이터 분석
@@ -86,7 +86,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
       })));
     }
   }]);
-  return Home;
+  return LikeLionMembers;
 }(React.Component);
 function LabButton(props) {
   return /*#__PURE__*/React.createElement("button", {
@@ -97,4 +97,4 @@ function LabButton(props) {
     onClick: props.onFilter
   }, props.children);
 }
-export default Home;
+export default likeLionMembers;
