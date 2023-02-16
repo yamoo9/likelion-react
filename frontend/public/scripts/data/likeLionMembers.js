@@ -1,4 +1,4 @@
-var likeLionMembers = [{
+export var likeLionMembers = [{
   id: 'likelion__4_1-01',
   lab: 1,
   name: '박재석',
