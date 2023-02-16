@@ -1,4 +1,4 @@
-class Home extends React.Component {
+class Products extends React.Component {
   state = {
     products: [
       {
@@ -50,4 +50,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default Products;
