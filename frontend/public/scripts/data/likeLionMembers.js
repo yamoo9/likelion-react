@@ -369,7 +369,7 @@ export var likeLionMembers = [{
   name: '소정',
   gender: '여성'
 }, {
-  id: 'likelion__4_8-08',
+  id: 'likelion__4_8-07',
   lab: 8,
   name: '이경주',
   gender: '여성'
