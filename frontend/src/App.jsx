@@ -1,7 +1,7 @@
 import LogIn from './pages/LogIn.js';
 import Browse from './pages/Browse.js';
-import Home from './pages/Home.js';
-// import { likeLionMembers } from './data/likeLionMembers.js';
+import EventHandling from './pages/EventHandling.js';
+import DescriptionListRendering from './pages/DescriptionListRendering.js';
 
 class App extends React.Component {
   state = {
@@ -10,7 +10,6 @@ class App extends React.Component {
     isToggle: false,
     isLoading: !true,
     hasError: null,
-    // likeLionMembers
   };
 
   originalHeadline = this.state.headline;
@@ -48,18 +47,21 @@ class App extends React.Component {
       return <div role="alert">{hasError.message}</div>;
     }
 
-    return <Home />;
-
     return (
       <div className="App">
         <h1>{headline}</h1>
-        <button type="button" onClick={this.handleChangeHeadline}>
+
+        <DescriptionListRendering />
+
+        {/* <EventHandling /> */}
+
+        {/* <button type="button" onClick={this.handleChangeHeadline}>
           {isToggle ? '오리지널 헤드라인으로 변경' : '뉴 헤드라인으로 변경'}
         </button>
 
         <LogIn />
 
-        {isPaid && <Browse />}
+        {isPaid && <Browse />} */}
       </div>
     );
   }

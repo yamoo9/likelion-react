@@ -14,8 +14,8 @@ function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _ty
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 import LogIn from './pages/LogIn.js';
 import Browse from './pages/Browse.js';
-import Home from './pages/Home.js';
-// import { likeLionMembers } from './data/likeLionMembers.js';
+import EventHandling from './pages/EventHandling.js';
+import DescriptionListRendering from './pages/DescriptionListRendering.js';
 var App = /*#__PURE__*/function (_React$Component) {
   _inherits(App, _React$Component);
   var _super = _createSuper(App);
@@ -32,7 +32,6 @@ var App = /*#__PURE__*/function (_React$Component) {
       isToggle: false,
       isLoading: !true,
       hasError: null
-      // likeLionMembers
     });
     _defineProperty(_assertThisInitialized(_this), "originalHeadline", _this.state.headline);
     _defineProperty(_assertThisInitialized(_this), "willUpdateHeadline", 'NEW HEADLINE! 😃');
@@ -71,13 +70,9 @@ var App = /*#__PURE__*/function (_React$Component) {
           role: "alert"
         }, hasError.message);
       }
-      return /*#__PURE__*/React.createElement(Home, null);
       return /*#__PURE__*/React.createElement("div", {
         className: "App"
-      }, /*#__PURE__*/React.createElement("h1", null, headline), /*#__PURE__*/React.createElement("button", {
-        type: "button",
-        onClick: this.handleChangeHeadline
-      }, isToggle ? '오리지널 헤드라인으로 변경' : '뉴 헤드라인으로 변경'), /*#__PURE__*/React.createElement(LogIn, null), isPaid && /*#__PURE__*/React.createElement(Browse, null));
+      }, /*#__PURE__*/React.createElement("h1", null, headline), /*#__PURE__*/React.createElement(DescriptionListRendering, null));
     }
   }]);
   return App;

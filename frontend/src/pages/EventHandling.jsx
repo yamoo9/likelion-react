@@ -1,5 +1,4 @@
-
-function Home() {
+function EventHandling() {
 
   const handlePreventDefault = (e) => {
     e.preventDefault();
@@ -20,12 +19,10 @@ function Home() {
               react
             </a>
           </li>
-          {/* <li><a href=""></a></li> */}
-          {/* <li><a href=""></a></li> */}
         </ul>
       </nav>
     </>
   );
 }
 
-export default Home;
+export default EventHandling;

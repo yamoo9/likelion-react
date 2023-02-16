@@ -18,12 +18,12 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-var Home = /*#__PURE__*/function (_React$Component) {
-  _inherits(Home, _React$Component);
-  var _super = _createSuper(Home);
-  function Home() {
+var DescriptionListRendering = /*#__PURE__*/function (_React$Component) {
+  _inherits(DescriptionListRendering, _React$Component);
+  var _super = _createSuper(DescriptionListRendering);
+  function DescriptionListRendering() {
     var _this;
-    _classCallCheck(this, Home);
+    _classCallCheck(this, DescriptionListRendering);
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
@@ -40,7 +40,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
     });
     return _this;
   }
-  _createClass(Home, [{
+  _createClass(DescriptionListRendering, [{
     key: "render",
     value: function render() {
       var descriptionList = this.state.descriptionList;
@@ -56,6 +56,6 @@ var Home = /*#__PURE__*/function (_React$Component) {
       })));
     }
   }]);
-  return Home;
+  return DescriptionListRendering;
 }(React.Component);
-export default Home;
+export default DescriptionListRendering;

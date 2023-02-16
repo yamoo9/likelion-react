@@ -1,6 +1,6 @@
 
 
-class Home extends React.Component {
+class DescriptionListRendering extends React.Component {
   
   state = {
     descriptionList: {
@@ -38,4 +38,4 @@ class Home extends React.Component {
 
 }
 
-export default Home;
+export default DescriptionListRendering;
