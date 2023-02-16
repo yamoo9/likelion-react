@@ -26,11 +26,14 @@ var Home = /*#__PURE__*/function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "state", {
       members: (_this$props$likeLionM = _this.props.likeLionMembers) !== null && _this$props$likeLionM !== void 0 ? _this$props$likeLionM : []
     });
-    _defineProperty(_assertThisInitialized(_this), "handleFilterLab", function () {
+    _defineProperty(_assertThisInitialized(_this), "handleFilterLab", function (labNumber) {
+      // 나는 무슨 일을 해야 하는가?
+      // 데이터 분석
+      // 어떻게 걸러낼 것인가?
+      // 걸러내는 프로그래밍 로직은?
       _this.setState({
         members: _this.state.members.filter(function (member) {
-          // 로직
-          return false;
+          return member.lab === labNumber;
         })
       });
     });
@@ -39,13 +42,39 @@ var Home = /*#__PURE__*/function (_React$Component) {
   _createClass(Home, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h2", null, "\uBA4B\uC7C1\uC774 \uC0AC\uC790\uCC98\uB7FC \uD504\uB860\uD2B8\uC5D4\uB4DC \uC2A4\uCFE8 4\uAE30 \uBA64\uBC84"), /*#__PURE__*/React.createElement("button", {
+      var _this2 = this,
+        _this$state;
+      return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h2", null, "\uBA4B\uC7C1\uC774 \uC0AC\uC790\uCC98\uB7FC \uD504\uB860\uD2B8\uC5D4\uB4DC \uC2A4\uCFE8 4\uAE30 \uBA64\uBC84"), /*#__PURE__*/React.createElement("div", {
+        role: "group",
+        style: {
+          display: 'flex',
+          gap: 8
+        }
+      }, /*#__PURE__*/React.createElement("button", {
         type: "button",
         style: {
           marginBottom: 20
         },
-        onClick: this.handleFilterLab
-      }, "LAB 10 \uC870 \uBAA8\uC5EC!"), /*#__PURE__*/React.createElement("ul", null, this.state.members.map(function (_ref) {
+        onClick: function onClick() {
+          return _this2.handleFilterLab(4);
+        }
+      }, "LAB 4\uC870 \uBAA8\uC5EC!"), /*#__PURE__*/React.createElement("button", {
+        type: "button",
+        style: {
+          marginBottom: 20
+        },
+        onClick: function onClick() {
+          return _this2.handleFilterLab(10);
+        }
+      }, "LAB 10\uC870 \uBAA8\uC5EC!"), /*#__PURE__*/React.createElement("button", {
+        type: "button",
+        style: {
+          marginBottom: 20
+        },
+        onClick: function onClick() {
+          return _this2.handleFilterLab(2);
+        }
+      }, "LAB 2\uC870 \uBAA8\uC5EC!")), /*#__PURE__*/React.createElement("ul", null, (_this$state = this.state) === null || _this$state === void 0 ? void 0 : _this$state.members.map(function (_ref) {
         var id = _ref.id,
           lab = _ref.lab,
           name = _ref.name,
