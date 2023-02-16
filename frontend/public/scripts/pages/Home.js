@@ -1,4 +1,10 @@
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
@@ -27,7 +33,9 @@ var Home = /*#__PURE__*/function (_React$Component) {
         api: 'Application Programming Interface',
         html: 'Hyper Text Markup Language',
         css: 'Cascading Style Sheets',
-        ajax: 'Asynchronous JavaScript And XML'
+        rwd: 'Responsive Web Design',
+        awd: 'Adaptive Web Design',
+        ajax: 'Asynchronous JavaScript And <abbr title="eXtensible Markup Language">XML</abbr>'
       }
     });
     return _this;
@@ -35,7 +43,17 @@ var Home = /*#__PURE__*/function (_React$Component) {
   _createClass(Home, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("section", null, /*#__PURE__*/React.createElement("h2", null, "\uC124\uBA85 \uBAA9\uB85D \uB9AC\uC2A4\uD2B8 \uB80C\uB354\uB9C1"), /*#__PURE__*/React.createElement("dl", null, /*#__PURE__*/React.createElement("dt", null, "\uAE30\uC220 \uC6A9\uC5B4"), /*#__PURE__*/React.createElement("dd", null, "\uC6A9\uC5B4 \uC124\uBA85 \uB0B4\uC6A9")));
+      var descriptionList = this.state.descriptionList;
+      return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h2", null, "\uC124\uBA85 \uBAA9\uB85D \uB9AC\uC2A4\uD2B8 \uB80C\uB354\uB9C1"), /*#__PURE__*/React.createElement("dl", {
+        lang: "en-GB"
+      }, Object.entries(descriptionList).map(function (_ref) {
+        var _ref2 = _slicedToArray(_ref, 2),
+          key = _ref2[0],
+          value = _ref2[1];
+        return /*#__PURE__*/React.createElement(React.Fragment, {
+          key: key
+        }, /*#__PURE__*/React.createElement("dt", null, key.toUpperCase()), /*#__PURE__*/React.createElement("dd", null, value));
+      })));
     }
   }]);
   return Home;
