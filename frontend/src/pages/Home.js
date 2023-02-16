@@ -11,7 +11,10 @@ class Home extends React.Component {
   handleFilterLab = () => {
     this.setState({
       members: this.state.members.filter(member => {
-        return member.name.includes('c')
+        // return 되는 결과 값이 true인 것만 필터링 한다.
+        // A && B ?
+        // A || B ?
+        return member.name.includes('c') || member.name.includes('a')
       })
     });
   }

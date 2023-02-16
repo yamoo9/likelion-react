@@ -38,7 +38,10 @@ var Home = /*#__PURE__*/function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "handleFilterLab", function () {
       _this.setState({
         members: _this.state.members.filter(function (member) {
-          return member.name.includes('c');
+          // return 되는 결과 값이 true인 것만 필터링 한다.
+          // A && B ?
+          // A || B ?
+          return member.name.includes('c') || member.name.includes('a');
         })
       });
     });
