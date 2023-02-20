@@ -8,3 +8,11 @@
 - Webpack
 - Create React App
 - Vite + Vitest
+
+## 학습 저장소 자료
+
+자료 복사는 [degit](https://github.com/Rich-Harris/degit#readme) 명령으로
+
+```sh
+degit yamoo9/likelion-react#04-react-toolchain 04-react-toolchain
+```

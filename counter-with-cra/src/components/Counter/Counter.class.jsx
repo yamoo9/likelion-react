@@ -49,19 +49,4 @@ class Counter extends Component {
   };
 }
 
-// static
-Counter.defaultProps = {
-  count: 1,
-  min: 1,
-  max: 10,
-  step: 1,
-};
-
-// Counter.defaultProps
-// 클래스.속성(또는 메서드)
-
-// Counter.prototype.render
-// 인스턴스 메서드
-// new 클래스().render()
-
 export default Counter;
