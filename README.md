@@ -1,9 +1,10 @@
 ###### EUID ╳ Likelion
 
-# React 프로그래밍
+# React 툴체인
 
-멋쟁이 사자처럼 React 학습 저장소
+웹 브라우저 환경에서 React를 사용하는 방법을 학습 했지만, 그것만으로는 부족합니다.
+어떤 점이 부족하며 그것을 채우기 위한 개발 환경을 직접 또는 툴체인을 사용해 구성하는 방법을 학습합니다.
 
-- [학습 커리큘럼](https://github.com/users/yamoo9/projects/3/views/1)
-- [학습 진행상황](https://github.com/users/yamoo9/projects/3/views/2)
-- [학습 Q/A](https://github.com/yamoo9/likelion-FEQA/issues?q=is%3Aissue+is%3Aclosed)
+- Webpack
+- Create React App
+- Vite + Vitest
