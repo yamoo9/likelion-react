@@ -1,14 +1,8 @@
-import { useState } from 'react';
-
-// imn : import no module
-// import './Counter.style.css';
-
-// imd : import destrucring
-// imp : import
+import React, { useState } from 'react';
 import styles from './Counter.module.css';
 
 function Counter({ min = 1, count: initialCount = 1, max = 10, step = 1 }) {
-  let [count, setCount] = useState(initialCount);
+  const [count, setCount] = useState(initialCount);
   const handleIncrement = () => setCount(count + step);
   const handleDecrement = () => setCount(count - step);
 
