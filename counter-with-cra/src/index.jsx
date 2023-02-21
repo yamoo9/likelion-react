@@ -1,5 +1,4 @@
 import './styles/global.css';
-
 import { StrictMode } from 'react';
 
 // ReactDOM v18
