@@ -1,0 +1,6 @@
+.container {
+  display: inline-flex;
+  justify-content: center;
+  gap: 8px;
+  min-width: 200px;
+}
