@@ -1,19 +1,17 @@
 import React from 'react';
+import styles from './LifeCycle.module.css';
 import { ReactComponent as Spinner } from '../../assets/atom-spinner.svg';
 
 const API_ENDPOINT = 'https://randomuser.me/api/?results=5';
 
 class LifeCycle extends React.Component {
-  /* render 단계 ---------------------------------------------------------------- */
+  /* 
+  render 단계 ---------------------------------------------------------------- */
 
   state = {
-    // 로딩 중인가요? (데이터 패치 요청????)
     isLoading: false,
-    // 통신 결과가 도착했나요? (데이터???)
-    data: [], // null
-    // 오류는 어떤 정보(상태 코드, 메시지)를 가지고 있나요?
+    data: [],
     error: null,
-    // 혹시 오류가 발생했나요?
     hasError: false,
   };
 
@@ -35,7 +33,7 @@ class LifeCycle extends React.Component {
     }
 
     return (
-      <>
+      <div className={styles.container}>
         <button
           type="button"
           onClick={() => this.fetchRandomPeople(API_ENDPOINT)}
@@ -46,20 +44,15 @@ class LifeCycle extends React.Component {
         {/* <ul>
           <li></li>
         </ul> */}
-      </>
+      </div>
     );
   }
 
-  /* commit 단계 ---------------------------------------------------------------- */
+  /* 
+  commit 단계 ---------------------------------------------------------------- */
 
-  // React + Firebase 클라우드 Backend (Serverless) : AWS
-  // - 인증(회원가입, 로그인, SNS 로그인)
-  // - 파이어스토어 (데이터베이스: JSON 데이터 구조)
-  // - 스토리지 (이미지, 에셋 업로드 → URL)
-  // - 호스팅 (서비스, FTP → 무료 웹 호스팅)
-
+  // Random User API 서버에 요청
   async fetchRandomPeople(endpoint) {
-    // Random User API 서버에 요청
     try {
       const response = await fetch(endpoint);
       const data = await response.json();
