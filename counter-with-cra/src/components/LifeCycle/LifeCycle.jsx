@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as Spinner } from '../../assets/spinner.svg';
+import { ReactComponent as Spinner } from '../../assets/atom-spinner.svg';
 
 const API_ENDPOINT = 'https://randomuser.me/api/?results=5';
 
@@ -14,7 +14,7 @@ class LifeCycle extends React.Component {
     // 오류는 어떤 정보(상태 코드, 메시지)를 가지고 있나요?
     error: null,
     // 혹시 오류가 발생했나요?
-    // hasError: false,
+    hasError: false,
   };
 
   render() {
@@ -52,22 +52,31 @@ class LifeCycle extends React.Component {
 
   /* commit 단계 ---------------------------------------------------------------- */
 
+  // React + Firebase 클라우드 Backend (Serverless) : AWS
+  // - 인증(회원가입, 로그인, SNS 로그인)
+  // - 파이어스토어 (데이터베이스: JSON 데이터 구조)
+  // - 스토리지 (이미지, 에셋 업로드 → URL)
+  // - 호스팅 (서비스, FTP → 무료 웹 호스팅)
+
   async fetchRandomPeople(endpoint) {
     // Random User API 서버에 요청
-    this.setState({
-      isLoading: true,
-    });
-
-    const response = await fetch(endpoint);
-
-    if (!response.ok) {
-      console.error(response.status, response.statusText);
-      return;
+    try {
+      const response = await fetch(endpoint);
+      const data = await response.json();
+      this.setState({
+        data: data.results,
+      });
+    } catch (error) {
+      console.log(error);
+      this.setState({
+        error: {
+          message: error.message,
+        },
+        hasError: true,
+      });
+    } finally {
+      this.setState({ isLoading: false });
     }
-
-    const data = await response.json();
-
-    console.log(data);
   }
 
   componentDidMount() {
