@@ -1,0 +1,12 @@
+.component {
+  user-select: none;
+  cursor: pointer;
+}
+
+.component svg {
+  pointer-events: none;
+}
+
+.component:disabled {
+  cursor: not-allowed;
+}
