@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import styles from './App.module.css';
 import { ReactComponent as ReactLogo } from 'assets/logo.svg';
 import {
   CounterFunction,
@@ -86,8 +86,8 @@ function App() {
 
   // class's render method
   return (
-    <div className="App">
-      <ReactLogo title="리액트 로고" />
+    <div className={styles.container}>
+      <ReactLogo className={styles.logo} title="리액트 로고" />
       <button type="button" onClick={handleToggleVisible}>
         {isVisibleComponents.toString()}
       </button>

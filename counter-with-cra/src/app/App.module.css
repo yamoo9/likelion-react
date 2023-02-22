@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  text-align: center;
+}
+
+.logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+/* Media Query Level 5 (A11Y): prefers-reduced-motion */
+@media (prefers-reduced-motion: no-preference) {
+  .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
