@@ -6,8 +6,11 @@ import {
   Button,
   LifeCycle,
 } from '../components';
+import reactLogo from 'assets/logo.svg';
 
 import { API_ENDPOINT } from '../components/LifeCycle/LifeCycle';
+
+console.log(reactLogo);
 
 function renderComponents(isVisible) {
   if (isVisible) {
