@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './LifeCycle.module.css';
 import { ReactComponent as Spinner } from '../../assets/atom-spinner.svg';
 
-const API_ENDPOINT = 'https://randomuser.me/api/?results=5';
+export const API_ENDPOINT = 'https://randomuser.me/api/?results=5';
 
 class LifeCycle extends React.Component {
   /* 
