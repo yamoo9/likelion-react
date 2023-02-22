@@ -25,13 +25,23 @@ function renderComponents(isVisible) {
 }
 
 function App() {
+  // React 상태 관리 훅(Hook)
   // 상태 변수(state variable)
-  const [isVisibleComponents] = React.useState(false);
+  const [isVisibleComponents, updateIsVisibleComponents] =
+    React.useState(false);
+
+  // 함수 안에 이벤트 핸들러 작성
+  const handleToggleVisible = () => {
+    updateIsVisibleComponents(!isVisibleComponents);
+  };
 
   return (
     <div className="App">
+      <button type="button" onClick={handleToggleVisible}>
+        {isVisibleComponents.toString()}
+      </button>
       <h2>라이프 사이클</h2>
-      <LifeCycle />
+      {isVisibleComponents && <LifeCycle />}
       {renderComponents(isVisibleComponents)}
     </div>
   );
