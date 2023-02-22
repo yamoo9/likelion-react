@@ -8,7 +8,8 @@ function App() {
 
       <div role="group" className={classes.buttonGroup}>
         <Button>회원가입</Button>
-        <Button mode="secondary">로그인</Button>
+        <Button secondary>로그인</Button>
+        <Button disabled>저장</Button>
       </div>
     </div>
   );
