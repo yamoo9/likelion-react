@@ -85,9 +85,6 @@ export const tokens = {
     '4xl': '2.5rem',
     '5xl': '3rem',
   },
-  fontFamily: {
-    pretendard: 'Pretendard',
-  },
   boxShadow: {
     'shadow/100': '0px 1px 3px 0px rgba(0,0,0,0.25)',
     'shadow/200': '0px 1px 3px 0px rgba(0,0,0,0.45)',
