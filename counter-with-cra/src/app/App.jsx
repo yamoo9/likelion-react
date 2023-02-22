@@ -1,16 +1,13 @@
 import React from 'react';
 import './App.css';
+import { ReactComponent as ReactLogo } from 'assets/logo.svg';
 import {
   CounterFunction,
   CounterClass,
   Button,
   LifeCycle,
-} from '../components';
-import reactLogo from 'assets/logo.svg';
-
-import { API_ENDPOINT } from '../components/LifeCycle/LifeCycle';
-
-console.log(reactLogo);
+  API_ENDPOINT,
+} from 'components';
 
 function renderComponents(isVisible) {
   if (isVisible) {
@@ -90,6 +87,7 @@ function App() {
   // class's render method
   return (
     <div className="App">
+      <ReactLogo title="리액트 로고" />
       <button type="button" onClick={handleToggleVisible}>
         {isVisibleComponents.toString()}
       </button>
