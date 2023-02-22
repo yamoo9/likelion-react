@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.headline {
+  text-align: center;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}

@@ -1,4 +1,4 @@
-import './App.css';
+import classes from './App.module.css';
 import { Button } from './components';
 
 function App() {
@@ -7,10 +7,12 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h2>Button 컴포넌트(stateless)</h2>
-      <Button onClick={handleClick}>Primary Button</Button>
-      <Button onClick={handleClick}>Secondary Button</Button>
+    <div className={classes.container}>
+      <h2 className={classes.headline}>Button 컴포넌트(stateless)</h2>
+      <div role="group" className={classes.buttonGroup}>
+        <Button onClick={handleClick}>Primary Button</Button>
+        <Button onClick={handleClick}>Secondary Button</Button>
+      </div>
     </div>
   );
 }
