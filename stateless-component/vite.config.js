@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import { resolve } from 'node:path';
 import react from '@vitejs/plugin-react-swc';
 
-/** @type {import('vite').UserConfig} */
 export default defineConfig({
   plugins: [react()],
   resolve: {

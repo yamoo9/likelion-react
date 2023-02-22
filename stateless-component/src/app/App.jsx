@@ -1,5 +1,5 @@
 import classes from './App.module.css';
-import { Button, A11yHidden } from './components';
+import { Button, A11yHidden } from '@/components';
 
 function App() {
   return (
