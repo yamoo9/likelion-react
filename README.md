@@ -21,3 +21,11 @@ React 함수(재사용 용이, 클래스 보다 가벼움) 컴포넌트
   - srOnly
   - screenOff
   - blind
+
+## 학습 저장소 자료
+
+자료 복사는 [degit](https://github.com/Rich-Harris/degit#readme) 명령을 사용하세요.
+
+```sh
+degit yamoo9/likelion-react#05-stateless-component 05-stateless-component
+```
