@@ -1,3 +1,7 @@
 export function Footer() {
-  return <footer>앱 푸터</footer>;
+  return (
+    <footer>
+      <h2>앱 푸터</h2>
+    </footer>
+  );
 }

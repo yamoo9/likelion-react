@@ -6,12 +6,18 @@ export function FormInput({
   label,
   type = 'text',
   invisibleLabel = false,
+  vertical = false,
   ...restProps
 }) {
   const id = useId();
+  const combineClassNames = `${classes.control} ${
+    vertical ? classes.control_vertical : ''
+  }`;
+
+  console.log(restProps);
 
   return (
-    <div className={classes.control}>
+    <div className={combineClassNames}>
       {renderLabel(id, label, invisibleLabel)}
       <input id={id} type={type} className={classes.input} {...restProps} />
     </div>
