@@ -14,6 +14,8 @@ function App() {
   return (
     <div className={classes.container}>
       <SkipToContent to="#snack">과자</SkipToContent>
+      <SkipToContent to="#pumpkin">호박</SkipToContent>
+      <SkipToContent to="#icecream">아이스크림</SkipToContent>
 
       <Nav as="h3" headline="상품 목록" list={navList} />
 
