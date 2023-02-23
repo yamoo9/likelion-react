@@ -25,6 +25,7 @@ function App() {
         <Button>회원가입</Button>
         <Button secondary>로그인</Button>
       </div>
+
       <section id="snack">
         <h2>과자</h2>
         <p>
