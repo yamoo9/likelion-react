@@ -1,31 +1,10 @@
-import { useState } from 'react';
 import classes from '@/styles/Home.module.css';
-import {
-  SkipToContent,
-  Nav,
-  Button,
-  A11yHidden,
-  BaseLayout,
-} from '@/components';
+import { Button, A11yHidden, BaseLayout } from '@/components';
 
 export default function Home() {
-  const [navList] = useState([
-    { id: 'item-1', text: '과자', to: '#snack' },
-    { id: 'item-2', text: '호박', to: '#pumpkin' },
-    { id: 'item-3', text: '아이스크림', to: '#icecream' },
-    { id: 'item-4', text: '수박', to: '#watermelon' },
-    { id: 'item-5', text: '치킨', to: '#chicken' },
-  ]);
-
   return (
     <BaseLayout>
       <div className={classes.container}>
-        <SkipToContent to="#snack">과자</SkipToContent>
-        <SkipToContent to="#pumpkin">호박</SkipToContent>
-        <SkipToContent to="#icecream">아이스크림</SkipToContent>
-
-        <Nav as="h3" headline="상품 목록" list={navList} />
-
         <h2 className={classes.headline}>Button 컴포넌트(stateless)</h2>
 
         <div role="group" className={classes.buttonGroup}>
