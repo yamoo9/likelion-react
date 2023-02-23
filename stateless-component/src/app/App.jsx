@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classes from './App.module.css';
-import { Button, A11yHidden, Nav } from '@/components';
+import { Button, A11yHidden, Nav, SkipToContent } from '@/components';
 
 function App() {
   const [navList] = useState([
@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className={classes.container}>
-      {/* <SkipToContent /> */}
+      <SkipToContent to="#snack">과자</SkipToContent>
 
       <Nav as="h3" headline="상품 목록" list={navList} />
 
@@ -23,7 +23,7 @@ function App() {
         <Button>회원가입</Button>
         <Button secondary>로그인</Button>
       </div>
-      <section id="snack">
+      <section id="snack" tabIndex={0}>
         <A11yHidden as="h2" focusable>
           맛있는 과자~
         </A11yHidden>
