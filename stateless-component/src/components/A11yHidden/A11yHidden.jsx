@@ -13,3 +13,5 @@ export const A11yHidden = forwardRef(function A11yHidden(
 
   return <Component ref={ref} className={combinedClassNames} {...restProps} />;
 });
+
+export const srOnlyClassName = classes.srOnly;
