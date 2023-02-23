@@ -1,10 +1,21 @@
+import React, { useState } from 'react';
 import classes from './App.module.css';
 import { Button, A11yHidden, Nav } from '@/components';
 
 function App() {
+  const [navList] = useState([
+    { id: 'item-1', text: '과자', to: '#snack' },
+    { id: 'item-2', text: '호박', to: '#pumpkin' },
+    { id: 'item-3', text: '아이스크림', to: '#icecream' },
+    { id: 'item-4', text: '수박', to: '#watermelon' },
+    { id: 'item-5', text: '치킨', to: '#chicken' },
+  ]);
+
   return (
     <div className={classes.container}>
-      <Nav />
+      {/* <SkipToContent /> */}
+
+      <Nav as="h3" headline="상품 목록" list={navList} />
 
       <h2 className={classes.headline}>Button 컴포넌트(stateless)</h2>
 
@@ -12,9 +23,9 @@ function App() {
         <Button>회원가입</Button>
         <Button secondary>로그인</Button>
       </div>
-      <section>
+      <section id="snack">
         <A11yHidden as="h2" focusable>
-          접근성 준수한 제목
+          맛있는 과자~
         </A11yHidden>
         <p>
           <A11yHidden as="a" href="#invisible" focusable>

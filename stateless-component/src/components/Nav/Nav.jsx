@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import { arrayOf, number, string, oneOfType, oneOf, exact } from 'prop-types';
 import classes from './Nav.module.scss';
 import { A11yHidden } from '@/components';
 
@@ -18,8 +18,19 @@ export function Nav({ as, headline, list, ...restProps }) {
 }
 
 Nav.defaultProps = {
-  list: [] /* [{ id: string, to: string, text: string }] */,
-  as: 'h2', // 이것들 중 하나 'h2', 'h3', 'h4', 'h5', 'h6'
+  // list: [],
+  as: 'h2',
 };
 
-Nav.propTypes = {};
+Nav.propTypes = {
+  list: arrayOf(
+    exact({
+      id: string,
+      to: string,
+      text: string,
+    })
+  ).isRequired,
+  headline: string.isRequired,
+  // 이것들 중 하나 'h2', 'h3', 'h4', 'h5', 'h6'
+  as: oneOf(['h2', 'h3', 'h4', 'h5', 'h6']),
+};
