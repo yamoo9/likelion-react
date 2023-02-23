@@ -1,0 +1,31 @@
+$color: #009fbb;
+
+.Nav {
+  display: flex;
+  color: rgba($color, 0.7);
+
+  ul {
+    display: flex;
+    gap: 16px;
+
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      color: rgba($color, 1);
+    }
+
+    &.active {
+      cursor: default;
+      color: rgba($color, 1);
+      text-underline-offset: 6px;
+      text-decoration: underline;
+    }
+  }
+}

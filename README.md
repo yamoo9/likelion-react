@@ -1,23 +1,38 @@
 ###### EUID ╳ Likelion
 
-# 상태가 없는 React 컴포넌트
+# 상태를 가지는 React 컴포넌트
 
-React 함수(재사용 용이, 클래스 보다 가벼움) 컴포넌트
+상태를 제어하는 React 컴포넌트에 대해 학습합니다.
 
-- 상태(state)를 가지지 않음
-- Prop에 의존하는 컴포넌트
-- 표현적인(Presentational) 컴포넌트
-- 마크업, 스타일링(레이아웃, 시각적 표현)
+## React Form
 
-## 실습 컴포넌트
+React가 제어하는 컴포넌트와 제어하지 않는 컴포넌트에 대해 학습합니다.
 
-정규 수업 시간에 같이 만들 stateless 컴포넌트
+- Controlled Component
+- Uncontrolled Component
 
-- [ ] 인풋
-- [x] 토글 버튼
-- [x] 화면에서 감춰지지만, 접근성을 준수하는 컴포넌트
-  - a11yHidden
-  - readableHidden
-  - srOnly
-  - screenOff
-  - blind
+## React Hooks
+
+함수 컴포넌트의 상태와 사이드 이펙트 관리 방법을 학습합니다.
+
+### 기본 훅
+
+- useState
+- useEffect
+- useContext
+
+### 추가 훅
+
+- useRef
+- useId
+- useLayoutEffect
+- useCallback
+- useMemo
+- useReducer
+- useImperativeHandle
+- useDeferredValue
+- useTransition
+
+## 커스텀 훅
+
+사용자 정의 훅을 작성하는 방법을 학습합니다.

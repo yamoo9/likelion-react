@@ -1,0 +1,21 @@
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px;
+  background: #fff;
+  box-shadow: 0 8px 10px rgba(#bde2eb, 0.4);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+
+  // 40em = 640px
+  @media (min-width: 40em) {
+    flex-direction: row;
+  }
+}

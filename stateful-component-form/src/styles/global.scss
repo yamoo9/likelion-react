@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  font: 1rem/1.5 'Pretendard', sans-serif;
+  background: #fff;
+  color: #000;
+
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+
+  * {
+    box-sizing: border-box;
+    &::before,
+    &::after {
+      box-sizing: inherit;
+    }
+  }
+}
+
+button {
+  font-family: inherit;
+}

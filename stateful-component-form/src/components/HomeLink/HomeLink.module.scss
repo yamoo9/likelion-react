@@ -1,0 +1,15 @@
+.HomeLink {
+  display: flex;
+  color: #009fbb;
+  font-weight: 300;
+  font-size: 18px;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  img {
+    vertical-align: -10px;
+  }
+}

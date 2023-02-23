@@ -1,0 +1,51 @@
+$label-color: #4795a5;
+$input-color: #5c6465;
+$border-color: #90d8e7;
+
+.FormInput {
+  position: relative;
+  display: flex;
+  gap: 4px;
+  flex-flow: row nowrap;
+  margin-bottom: 4px;
+
+  &Inline {
+    display: inline-flex;
+  }
+
+  &Vertical {
+    flex-direction: column;
+  }
+
+  &:focus-within,
+  &.inputed {
+    .label {
+      translate: -10px -100%;
+      scale: 0.64;
+    }
+  }
+}
+
+.label {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  translate: 0 -40%;
+  transition: all 0.2s ease-out;
+  color: $label-color;
+  font-size: 14px;
+}
+
+.input {
+  border: 1px solid $border-color;
+  padding: 1.6em 1em 1em;
+  width: clamp(320px, 20vw, 500px);
+  transition: all 0.2s ease-out;
+  border-radius: 4px;
+  font-size: 14px;
+  color: $input-color;
+
+  &:focus {
+    outline: 4px solid rgba($border-color, 0.4);
+  }
+}
