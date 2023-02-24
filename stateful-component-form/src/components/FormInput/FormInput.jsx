@@ -13,29 +13,27 @@ export function FormInput({
   ...restProps
 }) {
   const id = useId();
+
   const inputRef = useRef(null);
-  const combineClassNames = `${classes.FormInput} ${
-    vertical ? classes.FormInputVertical : ''
-  } ${inputRef.current?.value?.length > 0 ? classes.inputed : ''}`.trim();
 
   useEffect(() => {
+    // 이벤트 연결 대상 참조
     const input = inputRef.current;
     const component = input.parentElement;
 
-    const addInputedClassName = () => {
-      component.classList.add(classes.inputed);
-    };
-
-    const removeInputedClassName = () => {
-      component.classList.remove(classes.inputed);
-    };
-
-    input.addEventListener('input', (e) => {
-      e.target.value.length > 0
-        ? addInputedClassName()
-        : removeInputedClassName();
+    // 이벤트 연결
+    input.addEventListener('blur', (e) => {
+      if (e.target.value.length > 0) {
+        component.classList.add(classes.inputed);
+      } else {
+        component.classList.remove(classes.inputed);
+      }
     });
-  });
+  }, []);
+
+  const combineClassNames = `${classes.FormInput} ${
+    vertical ? classes.FormInputVertical : ''
+  }`.trim();
 
   return (
     <div className={combineClassNames}>

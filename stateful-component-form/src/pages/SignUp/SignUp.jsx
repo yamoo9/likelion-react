@@ -1,8 +1,7 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { BaseLayout, FormInput, Button } from '@/components';
 import classes from './SignUp.module.scss';
 
-/* Init --------------------------------------------------------------------- */
 const initialFormState = {
   name: '',
   email: '',
@@ -12,23 +11,34 @@ const initialFormState = {
 
 /* Component ---------------------------------------------------------------- */
 
+// useState vs. useRef
+// re-rendering (immutation) vs. re-rendering ❌ (mutation)
+
 export default function SignUp() {
   const formStateRef = useRef(initialFormState);
 
+  useEffect(() => {
+    console.log('update sign up');
+    console.log(formStateRef);
+  });
+
   const handleReset = (e) => {
     e.preventDefault();
+
     console.log('reset');
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(formStateRef.current);
+
+    console.log('회원가입 시도 → Firebase Authentication');
   };
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     formStateRef.current[name] = value;
-    // console.log(formStateRef.current);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('회원가입 시도 → Firebase Authentication');
   };
 
   return (
