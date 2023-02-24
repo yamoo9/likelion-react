@@ -16,6 +16,7 @@ const initialFormState = {
 // re-rendering (immutation) vs. re-rendering ❌ (mutation)
 
 export default function SignUp() {
+  const [isVisible, setIsVisible] = useState(true);
   const [message, setMessage] = useState('before update');
 
   const formStateRef = useRef(initialFormState);
@@ -41,7 +42,10 @@ export default function SignUp() {
 
   return (
     <BaseLayout className={classes.SignUp}>
-      <EventSubUnsub />
+      {isVisible && <EventSubUnsub />}
+      <button type="button" onClick={() => setIsVisible(!isVisible)}>
+        {isVisible ? 'unmount' : 'mount'}
+      </button>
       <p>{message}</p>
       <button
         type="button"
