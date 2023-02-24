@@ -10,13 +10,12 @@ export function FormInput({
   type,
   invisibleLabel,
   vertical,
-  inputed,
   ...restProps
 }) {
   const id = useId();
   const combineClassNames = `${classes.FormInput} ${
     vertical ? classes.FormInputVertical : ''
-  } ${inputed ? classes.inputed : ''}`.trim();
+  } ${restProps.value.length > 0 ? classes.inputed : ''}`.trim();
 
   return (
     <div className={combineClassNames}>
@@ -37,6 +36,7 @@ FormInput.defualtProps = {
 
 FormInput.propTypes = {
   type: string,
+  label: string.isRequired,
   invisibleLabel: bool,
   vertical: bool,
   inputed: bool,
