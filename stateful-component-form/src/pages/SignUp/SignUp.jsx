@@ -1,29 +1,33 @@
-import { useState } from 'react';
+import { useRef } from 'react';
 import { BaseLayout, FormInput, Button } from '@/components';
 import classes from './SignUp.module.scss';
+
+/* Init --------------------------------------------------------------------- */
+const initialFormState = {
+  name: '',
+  email: '',
+  password: '',
+  passwordConfirm: '',
+};
 
 /* Component ---------------------------------------------------------------- */
 
 export default function SignUp() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordConfirm, setPasswordConfirm] = useState('');
+  const formStateRef = useRef(initialFormState);
 
   const handleReset = (e) => {
     e.preventDefault();
-
     console.log('reset');
+  };
 
-    setName('');
-    setEmail('');
-    setPassword('');
-    setPasswordConfirm('');
+  const handleChangeInput = (e) => {
+    const { name, value } = e.target;
+    formStateRef.current[name] = value;
+    // console.log(formStateRef.current);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     console.log('회원가입 시도 → Firebase Authentication');
   };
 
@@ -35,31 +39,27 @@ export default function SignUp() {
         onSubmit={handleSubmit}
         onReset={handleReset}
       >
-        <FormInput
-          label="이름"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+        <FormInput name="name" label="이름" onChange={handleChangeInput} />
 
         <FormInput
+          name="email"
           type="email"
           label="이메일"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={handleChangeInput}
         />
 
         <FormInput
+          name="password"
           type="password"
           label="패스워드"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={handleChangeInput}
         />
 
         <FormInput
+          name="passwordConfirm"
           type="password"
           label="패스워드 확인"
-          value={passwordConfirm}
-          onChange={(e) => setPasswordConfirm(e.target.value)}
+          onChange={handleChangeInput}
         />
 
         <div className={classes.group}>
