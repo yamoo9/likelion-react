@@ -2,9 +2,7 @@ import { useRef /* useState */ } from 'react';
 import { BaseLayout, FormInput, Button } from '@/components';
 import classes from './SignUp.module.scss';
 // import { EventSubUnsub } from '@/demo/EventSubUnsub';
-import { validator } from '@/utils';
-
-console.log(validator.isId('ab35', { min: 3, max: 11 }));
+// import { validator } from '@/utils';
 
 const initialFormState = {
   name: '',
