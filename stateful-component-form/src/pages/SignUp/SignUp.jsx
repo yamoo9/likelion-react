@@ -1,6 +1,7 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import { BaseLayout, FormInput, Button } from '@/components';
 import classes from './SignUp.module.scss';
+import { EventSubUnsub } from '@/demo/EventSubUnsub';
 
 const initialFormState = {
   name: '',
@@ -15,12 +16,9 @@ const initialFormState = {
 // re-rendering (immutation) vs. re-rendering ❌ (mutation)
 
 export default function SignUp() {
-  const formStateRef = useRef(initialFormState);
+  const [message, setMessage] = useState('before update');
 
-  useEffect(() => {
-    console.log('update sign up');
-    console.log(formStateRef);
-  });
+  const formStateRef = useRef(initialFormState);
 
   const handleReset = (e) => {
     e.preventDefault();
@@ -43,6 +41,18 @@ export default function SignUp() {
 
   return (
     <BaseLayout className={classes.SignUp}>
+      <EventSubUnsub />
+      <p>{message}</p>
+      <button
+        type="button"
+        onClick={() =>
+          setMessage(
+            message.includes('before update') ? 'after update' : 'before update'
+          )
+        }
+      >
+        update
+      </button>
       <h2>회원가입 페이지</h2>
       <form
         className={classes.form}
