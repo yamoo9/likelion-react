@@ -1,33 +1,33 @@
-import { useState } from 'react';
-import { BaseLayout, FormInput, Button } from '@/components';
-import classes from './SignUp.module.scss';
+import { useState } from "react"
+import { BaseLayout, FormInput, Button } from "@/components"
+import classes from "./SignUp.module.scss"
 
 /* Intialization ------------------------------------------------------------ */
 
 const initialFormState = {
-  name: '',
-  email: '',
-  password: '',
-  passwordConfirm: '',
-};
+  name: "",
+  email: "",
+  password: "",
+  passwordConfirm: "",
+}
 
 /* Component ---------------------------------------------------------------- */
 
 export default function SignUp() {
-  const [formState, setFormState] = useState(initialFormState);
+  const [formState, setFormState] = useState(initialFormState)
 
   const handleReset = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    console.log('reset');
-    setFormState(initialFormState);
-  };
+    console.log("reset")
+    setFormState(initialFormState)
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    console.log('회원가입 시도 → Firebase Authentication');
-  };
+    console.log("회원가입 시도 → Firebase Authentication")
+  }
 
   return (
     <BaseLayout className={classes.SignUp}>
@@ -46,7 +46,7 @@ export default function SignUp() {
             setFormState({
               ...formState,
               name: e.target.value,
-            });
+            })
           }}
         />
 
@@ -64,5 +64,5 @@ export default function SignUp() {
         </div>
       </form>
     </BaseLayout>
-  );
+  )
 }

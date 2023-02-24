@@ -1,11 +1,11 @@
-import { string } from 'prop-types';
-import { Header, Footer, Container } from '@/components';
-import classes from './Layout.module.scss';
+import { node, string } from "prop-types"
+import { Header, Footer, Container } from "@/components"
+import classes from "./Layout.module.scss"
 
 /* Component ---------------------------------------------------------------- */
 
 export function BaseLayout({ className, children, ...restProps }) {
-  const combineClassNames = `${classes.BaseLayout} ${className}`.trim();
+  const combineClassNames = `${classes.BaseLayout} ${className}`.trim()
 
   return (
     <div className={combineClassNames} {...restProps}>
@@ -15,15 +15,16 @@ export function BaseLayout({ className, children, ...restProps }) {
       </main>
       <Footer />
     </div>
-  );
+  )
 }
 
 /* Props -------------------------------------------------------------------- */
 
 BaseLayout.defaultProps = {
-  className: '',
-};
+  className: "",
+}
 
 BaseLayout.propTypes = {
   className: string,
-};
+  children: node,
+}
