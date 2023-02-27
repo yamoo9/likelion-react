@@ -1,11 +1,11 @@
 import classes from './Counter.module.scss';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, memo } from 'react';
 import { useCompareProp } from '@/hooks/useCompareProp';
 
-// [React hook] useMemo를 사용해 컴포넌트 기억하기
-// [React HOC] React.memo를 사용해 컴포넌트 기억하기
+// - [x] [React hook] useMemo를 사용해 컴포넌트 기억하기
+// - [x] [React HOC] React.memo를 사용해 컴포넌트 기억하기
 
 export function CounterStateful({
   count: initialCount,
@@ -27,43 +27,28 @@ export function CounterStateful({
     setCount((count) => count - step);
   }, [step]);
 
-  const memoIncButton = useMemo(
-    () => (
+  return (
+    <div className={combineClassNames}>
       <CountButton label={buttonLabels.increment} onUpdate={handleIncrement}>
         +
       </CountButton>
-    ),
-    [buttonLabels.increment, handleIncrement]
-  );
-
-  const memoDecButton = useMemo(
-    () => (
+      <CountOutput>{count}</CountOutput>
       <CountButton label={buttonLabels.decrement} onUpdate={handleDecrement}>
         -
       </CountButton>
-    ),
-    [buttonLabels.decrement, handleDecrement]
-  );
-
-  return (
-    <div className={combineClassNames}>
-      {memoIncButton}
-      <CountOutput>{count}</CountOutput>
-      {memoDecButton}
     </div>
   );
 }
 
 // eslint-disable-next-line react/prop-types
-function CountButton({ label, onUpdate, children }) {
+const CountButton = memo(function CountButton({ label, onUpdate, children }) {
   useCompareProp(onUpdate);
-
   return (
     <button type="button" onClick={onUpdate} aria-label={label}>
       {children}
     </button>
   );
-}
+});
 
 // eslint-disable-next-line react/prop-types
 function CountOutput({ children }) {
