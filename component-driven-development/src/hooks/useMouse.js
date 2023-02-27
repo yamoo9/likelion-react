@@ -1,13 +1,12 @@
-import { debounce } from '@/utils';
+// import { debounce } from '@/utils';
+import debounce from 'lodash.debounce';
 import { useState, useEffect } from 'react';
-
-// 에너테이션 Annotation
 
 /**
  * 사용자의 마우스 x, y위치 값을 반환하는 React 커스텀 훅
  * @returns {{ x: number, y: number }} 마우스 x, y 위치
  */
-export function useMouse(recordTime = 300) {
+export function useMouse(wait = 0) {
   const [x, updateX] = useState(0);
   const [y, updateY] = useState(0);
 
@@ -16,7 +15,7 @@ export function useMouse(recordTime = 300) {
     const handleMouseMove = debounce((e) => {
       updateX(e.pageX);
       updateY(e.pageY);
-    }, recordTime);
+    }, wait);
 
     // 이벤트 구독 (subscription)
     globalThis.addEventListener(EVENT_TYPE, handleMouseMove);

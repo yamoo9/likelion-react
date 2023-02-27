@@ -8,7 +8,7 @@ import { useMouse } from '@/hooks/useMouse';
 export default function Home() {
   useDocumentTitle('홈 → Likelion 4th');
 
-  const { x, y } = useMouse();
+  const { x, y } = useMouse(10);
 
   return (
     <BaseLayout>
