@@ -1,4 +1,4 @@
-import { BaseLayout, Button } from '@/components';
+import { BaseLayout, Button, Logo } from '@/components';
 import classes from './Home.module.scss';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
@@ -18,6 +18,10 @@ export default function Home() {
           <Button secondary disabled>
             로그인
           </Button>
+        </div>
+        <div className={classes.logoGroup}>
+          <Logo />
+          <Logo rotation={90} />
         </div>
       </div>
     </BaseLayout>
