@@ -2,6 +2,7 @@ import { useRef /* useState */ } from 'react';
 import { BaseLayout, FormInput, Button } from '@/components';
 import classes from './SignUp.module.scss';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import { useMouse } from '@/hooks/useMouse';
 // import { EventSubUnsub } from '@/demo/EventSubUnsub';
 // import { validator } from '@/utils';
 
@@ -22,6 +23,10 @@ export default function SignUp() {
   // const [message, setMessage] = useState('before update');
 
   useDocumentTitle('회원가입 → Likelion 4th');
+
+  const { x, y } = useMouse();
+
+  console.log(x, y);
 
   const formStateRef = useRef(initialFormState);
 

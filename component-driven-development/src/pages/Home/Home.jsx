@@ -1,27 +1,22 @@
 import { BaseLayout, Button, Logo } from '@/components';
 import classes from './Home.module.scss';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import { useMouse } from '@/hooks/useMouse';
 
 /* Component ---------------------------------------------------------------- */
 
 export default function Home() {
+  // useDocumentTitle('홈 → Likelion 4th');
   useDocumentTitle('홈 → Likelion 4th');
+
+  const { x, y } = useMouse();
 
   return (
     <BaseLayout>
       <div className={classes.container}>
         <h2 className={classes.headline}>홈 페이지</h2>
-        <div className={classes.buttonGroup}>
-          <Button>로그인</Button>
-          <Button secondary>로그인</Button>
-          <Button disabled>로그인</Button>
-          <Button secondary disabled>
-            로그인
-          </Button>
-        </div>
-        <div className={classes.logoGroup}>
-          <Logo />
-          <Logo rotation={90} />
+        <div style={{ marginTop: 40 }}>
+          x: <span>{x}</span> / y: <span>{y}</span>
         </div>
       </div>
     </BaseLayout>
