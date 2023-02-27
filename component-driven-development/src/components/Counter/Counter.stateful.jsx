@@ -1,7 +1,7 @@
 import classes from './Counter.module.scss';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 
 export function CounterStateful({
   count: initialCount,
@@ -15,9 +15,11 @@ export function CounterStateful({
 
   const combineClassNames = classNames(classes.Counter, className);
 
-  const handleIncrement = useCallback(() => {
+  const handleIncrement = () => {
     setCount((count) => count + step);
-  }, [step]);
+  };
+
+  const memoizedIncrement = useCallback(handleIncrement, [step]);
 
   const handleDecrement = useCallback(() => {
     setCount((count) => count - step);
@@ -25,31 +27,45 @@ export function CounterStateful({
 
   return (
     <div className={combineClassNames}>
-      <CountButton label={buttonLabels.increment} onUpdate={handleIncrement}>
+      <CountButton label={buttonLabels.increment} onUpdate={memoizedIncrement}>
         +
       </CountButton>
 
       <CountOutput>{count}</CountOutput>
 
-      <CountButton label={buttonLabels.decrement} onUpdate={handleDecrement}>
+      {/* <CountButton label={buttonLabels.decrement} onUpdate={handleDecrement}>
         -
-      </CountButton>
+      </CountButton> */}
     </div>
+  );
+}
+
+// eslint-disable-next-line react/prop-types
+function CountButton({ label, onUpdate, children }) {
+  // 증명: 이전 onUpdate와 현재 onUpate 함수는 과연 동일 참조인가?
+  // useRef (prev props vs. current props), useEffect
+  const onUpdateRef = useRef({ prevOnUpdateProp: null });
+  // { current: { prevOnUpdateProp: null } }
+
+  useEffect(() => {
+    console.log(Object.is(onUpdateRef.current.prevOnUpdateProp, onUpdate));
+
+    if (!onUpdateRef.current.prevOnUpdateProp) {
+      // 이전에 전달되는 onUpdate prop 값 기억 (리-렌더링에 영향을 주지 않음)
+      onUpdateRef.current.prevOnUpdateProp = onUpdate;
+    }
+  });
+
+  return (
+    <button type="button" onClick={onUpdate} aria-label={label}>
+      {children}
+    </button>
   );
 }
 
 // eslint-disable-next-line react/prop-types
 function CountOutput({ children }) {
   return <output>{children}</output>;
-}
-
-// eslint-disable-next-line react/prop-types
-function CountButton({ label, onUpdate, children }) {
-  return (
-    <button type="button" onClick={onUpdate} aria-label={label}>
-      {children}
-    </button>
-  );
 }
 
 /* Props ------------------------------------------------------------------- */
