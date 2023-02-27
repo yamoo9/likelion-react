@@ -11,11 +11,12 @@ import { useState } from 'react';
 
 // React 컴포넌트 상태 관리 전략
 // - [x] 상태 끌어올리기(lifting state up) 전략
-// - [ ] props drilling
+// - [ ] Props 드릴링(props drilling) 이슈
 
 // React 컴포넌트 성능(Performance)
 // - [x] useCallback (함수 타입 값을 기억)
 // - [x] useMemo (JavaScript의 모든 타입 값을 기억)
+// - [x] React.memo (함수, 클래스 컴포넌트를 기억)
 
 export default function Home() {
   useDocumentTitle('홈 → Likelion 4th');
@@ -36,7 +37,7 @@ export default function Home() {
       <div className={classes.container}>
         <h2 className={classes.headline}>홈 페이지</h2>
         <div style={{ display: 'flex', gap: 40, flexDirection: 'row' }}>
-          <div hidden>
+          <div>
             <h3>Stateless</h3>
             <CounterStateless
               count={count}
@@ -45,7 +46,7 @@ export default function Home() {
               onDecrement={handleDecrement}
             />
           </div>
-          <div>
+          <div hidden>
             <h3>Stateful</h3>
             <CounterStateful count={count} step={step} />
           </div>
