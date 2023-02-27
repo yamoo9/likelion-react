@@ -1,33 +1,24 @@
 import classes from './Counter.module.scss';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 
-export function Counter({
-  count: initialCount,
+export function CounterStateless({
+  count,
   min,
   max,
   step,
+  onIncrement,
+  onDecrement,
   buttonLabels,
   className,
 }) {
-  const [count, setCount] = useState(initialCount);
-
   const combineClassNames = classNames(classes.Counter, className);
-
-  const handleIncrement = () => {
-    setCount((count) => count + step);
-  };
-
-  const handleDecrement = () => {
-    setCount((count) => count - step);
-  };
 
   return (
     <div className={combineClassNames}>
       <button
         type="button"
-        onClick={handleIncrement}
+        onClick={onIncrement}
         aria-label={buttonLabels.increment}
       >
         +
@@ -37,7 +28,7 @@ export function Counter({
 
       <button
         type="button"
-        onClick={handleDecrement}
+        onClick={onDecrement}
         aria-label={buttonLabels.decrement}
       >
         -
@@ -48,7 +39,7 @@ export function Counter({
 
 /* Props ------------------------------------------------------------------- */
 
-Counter.defaultProps = {
+CounterStateless.defaultProps = {
   count: 1,
   min: 1,
   max: 10,
@@ -58,9 +49,11 @@ Counter.defaultProps = {
     decrement: '카운트 감소',
   },
   className: '',
+  onIncrement: null,
+  onDecrement: null,
 };
 
-Counter.propTypes = {
+CounterStateless.propTypes = {
   /** 카운트 현재 값입니다. */
   count: PropTypes.number,
   /** 카운트 최솟값입니다. */
@@ -76,4 +69,8 @@ Counter.propTypes = {
   }),
   /** 사용자 정의 클래스 이름입니다. */
   className: PropTypes.string,
+  /** 카운트 증가 함수를 설정합니다. */
+  onIncrement: PropTypes.func,
+  /** 카운트 감소 함수를 설정합니다. */
+  onDecrement: PropTypes.func,
 };
