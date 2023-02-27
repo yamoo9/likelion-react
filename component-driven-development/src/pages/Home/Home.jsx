@@ -15,7 +15,7 @@ import { useState } from 'react';
 
 // React 컴포넌트 성능(Performance)
 // - [x] useCallback (함수 타입 값을 기억)
-// - [ ] useMemo
+// - [x] useMemo (JavaScript의 모든 타입 값을 기억)
 
 export default function Home() {
   useDocumentTitle('홈 → Likelion 4th');

@@ -1,7 +1,7 @@
 import classes from './Counter.module.scss';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { useCompareProp } from '@/hooks/useCompareProp';
 
 export function CounterStateful({
@@ -16,11 +16,16 @@ export function CounterStateful({
 
   const combineClassNames = classNames(classes.Counter, className);
 
-  const handleIncrement = () => {
+  const handleIncrementCallback = useCallback(() => {
     setCount((count) => count + step);
-  };
+  }, [step]);
 
-  const memoizedIncrement = useCallback(handleIncrement, [step]);
+  const handleIncrementMemo = useMemo(
+    () => () => {
+      setCount((count) => count + step);
+    },
+    [step]
+  );
 
   const handleDecrement = useCallback(() => {
     setCount((count) => count - step);
@@ -28,15 +33,18 @@ export function CounterStateful({
 
   return (
     <div className={combineClassNames}>
-      <CountButton label={buttonLabels.increment} onUpdate={memoizedIncrement}>
+      <CountButton
+        label={buttonLabels.increment}
+        onUpdate={handleIncrementCallback}
+      >
         +
       </CountButton>
 
       <CountOutput>{count}</CountOutput>
 
-      {/* <CountButton label={buttonLabels.decrement} onUpdate={handleDecrement}>
+      <CountButton label={buttonLabels.decrement} onUpdate={handleDecrement}>
         -
-      </CountButton> */}
+      </CountButton>
     </div>
   );
 }
