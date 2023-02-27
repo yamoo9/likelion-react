@@ -1,4 +1,7 @@
 export const parameters = {
+  controls: {
+    expanded: true,
+  },
   backgrounds: {
     default: 'light',
   },
