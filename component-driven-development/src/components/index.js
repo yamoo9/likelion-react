@@ -6,6 +6,7 @@ export * from './Container/Container';
 
 export * from './Logo/Logo';
 export * from './Button/Button';
+export * from './Counter/Counter';
 export * from './HomeLink/HomeLink';
 export * from './FormInput/FormInput';
 export * from './A11yHidden/A11yHidden';

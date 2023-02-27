@@ -24,7 +24,7 @@ export function useMouse(wait = 0) {
     return () => {
       globalThis.removeEventListener(EVENT_TYPE, handleMouseMove);
     };
-  }, []);
+  }, [wait]);
 
   return { x, y };
 }

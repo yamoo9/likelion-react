@@ -1,0 +1,16 @@
+.Counter {
+  button {
+    cursor: pointer;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  output {
+    margin: {
+      left: 8px;
+      right: 8px;
+    }
+  }
+}
