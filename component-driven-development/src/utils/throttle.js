@@ -1,4 +1,4 @@
-export function throttle(callback, limit = 1000) {
+export function throttle(callback, limit = 300) {
   let waiting = false;
   return function () {
     if (!waiting) {

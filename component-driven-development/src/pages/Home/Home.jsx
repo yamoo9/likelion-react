@@ -6,7 +6,6 @@ import { useMouse } from '@/hooks/useMouse';
 /* Component ---------------------------------------------------------------- */
 
 export default function Home() {
-  // useDocumentTitle('홈 → Likelion 4th');
   useDocumentTitle('홈 → Likelion 4th');
 
   const { x, y } = useMouse();
