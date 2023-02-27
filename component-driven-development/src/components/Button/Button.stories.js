@@ -21,10 +21,28 @@ export const PrimaryDisabled = {
   },
 };
 
-// SecondaryDisabled
 export const SecondaryDisabled = {
   args: {
     disabled: true,
     ...Secondary.args,
+  },
+};
+
+export const PrimaryClickable = {
+  args: {
+    onClick() {
+      console.log('회원가입을 요청합니다.');
+    },
+  },
+};
+
+export const PrimaryHoverable = {
+  args: {
+    onMouseEnter() {
+      console.log('Mouse Enter');
+    },
+    onMouseLeave() {
+      console.log('Mouse Leave');
+    },
   },
 };

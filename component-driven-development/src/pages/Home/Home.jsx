@@ -1,4 +1,4 @@
-import { BaseLayout } from '@/components';
+import { BaseLayout, Button } from '@/components';
 import classes from './Home.module.scss';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
@@ -11,6 +11,14 @@ export default function Home() {
     <BaseLayout>
       <div className={classes.container}>
         <h2 className={classes.headline}>홈 페이지</h2>
+        <div className={classes.buttonGroup}>
+          <Button>로그인</Button>
+          <Button secondary>로그인</Button>
+          <Button disabled>로그인</Button>
+          <Button secondary disabled>
+            로그인
+          </Button>
+        </div>
       </div>
     </BaseLayout>
   );
