@@ -5,6 +5,18 @@ import classes from './Button.module.scss';
 /* Component ---------------------------------------------------------------- */
 
 export function Button({ secondary: isSecondary, disabled, ...restProps }) {
+  return (
+    <button
+      type="button"
+      disabled={disabled}
+      className={classes.Button}
+      style={getClassName(isSecondary, disabled)}
+      {...restProps}
+    />
+  );
+}
+
+function getClassName(isSecondary, disabled) {
   let buttonStyle = {};
 
   if (!disabled) {
@@ -23,15 +35,7 @@ export function Button({ secondary: isSecondary, disabled, ...restProps }) {
     };
   }
 
-  return (
-    <button
-      type="button"
-      disabled={disabled}
-      className={classes.Button}
-      style={buttonStyle}
-      {...restProps}
-    />
-  );
+  return buttonStyle;
 }
 
 /* Props -------------------------------------------------------------------- */
