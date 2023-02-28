@@ -41,7 +41,8 @@ export default function SignUp() {
         email,
         password
       );
-      console.log(userCredential.user);
+
+      console.log(userCredential);
     } catch ({ code, message }) {
       console.error({ errorCode: code, errorMessage: message });
     }
