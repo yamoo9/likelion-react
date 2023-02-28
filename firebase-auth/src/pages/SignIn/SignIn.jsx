@@ -1,9 +1,17 @@
 import classes from './SignIn.module.scss';
 import { BaseLayout } from '@/components';
+import { usePhotos } from '@/services/usePhotos';
 
 /* Component ---------------------------------------------------------------- */
 
 export default function SignIn() {
+  const state = usePhotos({
+    page: 2,
+    limit: 3,
+  });
+
+  console.log(state);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 

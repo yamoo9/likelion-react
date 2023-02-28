@@ -1,5 +1,5 @@
+import { PropTypes } from 'prop-types';
 import classes from './HomeLink.module.scss';
-
 import { getPathFromBaseUrl } from '@/utils';
 
 /* Component ---------------------------------------------------------------- */
@@ -11,3 +11,7 @@ export function HomeLink({ children }) {
     </h1>
   );
 }
+
+HomeLink.propTypes = {
+  children: PropTypes.node,
+};

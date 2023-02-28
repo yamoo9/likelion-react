@@ -8,6 +8,18 @@ import { useFetch } from '@/hooks';
 
 // 참고: https://exploringjs.com/impatient-js/toc.html
 
+// export function usePhotos(userOptions = {}) {
+//   const { page, limit } = { ...usePhotos.defaultOptions, ...userOptions };
+//   return useFetch(
+//     `${import.meta.env.VITE_PHOTOS_API}?_page=${page}&_limit=${limit}`
+//   );
+// }
+
+// usePhotos.defaultOptions = {
+//   limit: 20,
+//   page: 1,
+// };
+
 export function usePhotos({ limit = 20, page = 1 } = {}) {
   return useFetch(
     `${import.meta.env.VITE_PHOTOS_API}?_page=${page}&_limit=${limit}`

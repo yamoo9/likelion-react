@@ -22,7 +22,6 @@ export function Notification({
 
     if (closeButton) {
       const handleKeyUp = (e) => {
-        console.log('REACT: ', e.key);
         if (e.key.toLowerCase() === 'escape') {
           onClose();
         }
