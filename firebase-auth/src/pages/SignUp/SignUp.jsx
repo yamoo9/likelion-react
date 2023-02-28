@@ -2,9 +2,7 @@ import { useRef } from 'react';
 import { BaseLayout, FormInput, Button } from '@/components';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import classes from './SignUp.module.scss';
-
-import { auth } from '@/firebase/auth';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createAuthUser } from '@/firebase/auth';
 
 const initialFormState = {
   name: '',
@@ -28,24 +26,21 @@ export default function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const { name, email, password, passwordConfirm } = formStateRef.current;
+
     // 유효성 검사
-    // console.log(formStateRef.current);
-
-    const { email, password } = formStateRef.current;
-
-    try {
-      // console.log('회원가입 시도 → Firebase Authentication');
-      // 회원가입 기능(Firebase Auth 요청)
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-      console.log(userCredential);
-    } catch ({ code, message }) {
-      console.error({ errorCode: code, errorMessage: message });
+    if (!name || name.trim().length < 2) {
+      console.error('이름은 2글자 이상 입력해야 해요');
+      return;
     }
+
+    if (!Object.is(password, passwordConfirm)) {
+      console.error('입력한 패스워드를 다시 확인하세요.');
+      return;
+    }
+
+    const { user } = await createAuthUser(email, password);
+    console.log(user);
   };
 
   const handleChangeInput = (e) => {
