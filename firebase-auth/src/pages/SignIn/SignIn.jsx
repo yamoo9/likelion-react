@@ -1,16 +1,16 @@
-import { BaseLayout } from '@/components';
 import classes from './SignIn.module.scss';
-import { useFetch } from '@/hooks';
+import { BaseLayout } from '@/components';
+import { useMakeupProducts } from '@/services/useMakeupProducts';
+import { usePhotos } from '@/services/usePhotos';
 
 /* Component ---------------------------------------------------------------- */
 
 export default function SignIn() {
-  // 커스텀 훅 API 설계(Design)
-  // const { isLoading, error, data } = useFetch(import.meta.env.VITE_NEWS_API)
+  const alvaState = useMakeupProducts('alva');
+  const booshState = useMakeupProducts('boosh');
+  const photoState = usePhotos({ page: 5, limit: 50 }); // page 1, limit 20
 
-  const { isLoading, error, data } = useFetch(import.meta.env.VITE_MAKEUP_API);
-
-  console.log({ isLoading, error, data });
+  console.log({ alvaState, booshState, photoState });
 
   const handleSubmit = (e) => {
     e.preventDefault();
