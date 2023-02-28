@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { BaseLayout, FormInput, Button } from '@/components';
+import { BaseLayout, FormInput, Button, Notification } from '@/components';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import classes from './SignUp.module.scss';
 import { createAuthUser } from '@/firebase/auth';
@@ -51,11 +51,24 @@ export default function SignUp() {
   return (
     <BaseLayout className={classes.SignUp}>
       <h2>회원가입 페이지</h2>
+
       <form
         className={classes.form}
         onSubmit={handleSubmit}
         onReset={handleReset}
+        style={{
+          position: 'relative',
+          overflow: 'hidden',
+        }}
       >
+        <Notification
+          style={{
+            position: 'absolute',
+            zIndex: 1000000000000000000,
+            width: '100vw',
+          }}
+        />
+
         <FormInput name="name" label="이름" onChange={handleChangeInput} />
 
         <FormInput
