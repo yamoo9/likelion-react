@@ -2,8 +2,7 @@ import { useRef } from 'react';
 import { BaseLayout, FormInput, Button, Notification } from '@/components';
 import classes from './SignUp.module.scss';
 import { createAuthUser } from '@/firebase/auth';
-import { useDocumentTitle } from '@/hooks/useDocumentTitle';
-import { useToggle } from '@/hooks/useToggle';
+import { useDocumentTitle, useToggle } from '@/hooks';
 
 const initialFormState = {
   name: '',

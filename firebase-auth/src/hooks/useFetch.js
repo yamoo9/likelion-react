@@ -1,4 +1,27 @@
-// React 함수 컴포넌트 (네트워크 요청/응답 로직: 자주 사용되는 로직(ctrl+C, ctrl+V)
-// - [ ] use* customHook (useFetch) → { isLoading, error, data }
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-// fetch API | axios 라이브러리 활용
+export function useFetch(endpoint) {
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    setIsLoading(true);
+
+    async function fetchData() {
+      try {
+        const { data } = await axios.get(endpoint);
+        setData(data);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchData();
+  }, [endpoint]);
+
+  return { isLoading, data, error };
+}
