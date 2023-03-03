@@ -16,25 +16,11 @@ import { createRoot } from 'react-dom/client';
 import { AuthUserProvider } from './contexts/AuthUser';
 import { GlobalStateProvider } from '@/contexts/GlobalState';
 import App from '@/app/App';
-import { ThemeProvider } from 'styled-components';
 
 createRoot(document.getElementById('root')).render(
   <AuthUserProvider>
     <GlobalStateProvider>
-      <ThemeProvider
-        theme={{
-          primary: {
-            400: '#282bde',
-            500: '#2100e3',
-          },
-          secondary: {
-            400: '#e16e4e',
-            500: '#ef4c00',
-          },
-        }}
-      >
-        <App />
-      </ThemeProvider>
+      <App />
     </GlobalStateProvider>
   </AuthUserProvider>
 );
