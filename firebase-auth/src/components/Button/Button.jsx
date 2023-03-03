@@ -1,10 +1,15 @@
 import PropTypes from 'prop-types';
 import { getColor } from '@/theme/utils';
+import { useTheme } from '@/theme/ThemeContext';
 import classes from './Button.module.scss';
 
 /* Component ---------------------------------------------------------------- */
 
 export function Button({ secondary: isSecondary, disabled, ...restProps }) {
+  const theme = useTheme();
+
+  console.log(theme);
+
   return (
     <button
       type="button"
