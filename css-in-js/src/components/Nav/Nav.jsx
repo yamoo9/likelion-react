@@ -2,6 +2,7 @@ import { string, oneOf, bool, exact } from 'prop-types';
 import { A11yHidden } from '@/components';
 import classes from './Nav.module.scss';
 import { useGlobalState } from '@/contexts/GlobalState';
+import { NavLink } from 'react-router-dom';
 
 /* Types -------------------------------------------------------------------- */
 
@@ -30,9 +31,7 @@ export function Nav({ as, headline, ...restProps }) {
 Nav.Item = function NavItem({ item }) {
   return (
     <li>
-      <a href={item.to} className={item.active ? classes.active : ''}>
-        {item.text}
-      </a>
+      <NavLink to={item.to}>{item.text}</NavLink>
     </li>
   );
 };
