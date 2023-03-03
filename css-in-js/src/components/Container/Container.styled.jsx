@@ -11,4 +11,7 @@ export const Container = styled.div`
   margin-right: auto;
 `;
 
+// styled.div
+// Container
+
 Container.displayName = 'Container';
