@@ -12,8 +12,7 @@ const initialFormState = {
 
 /* Component ---------------------------------------------------------------- */
 
-// eslint-disable-next-line react/prop-types
-export default function SignUp({ logoLabel, navList }) {
+export default function SignUp() {
   useDocumentTitle('회원가입 → Likelion 4th');
 
   /* -------------------------------------------------------------------------- */
@@ -50,11 +49,7 @@ export default function SignUp({ logoLabel, navList }) {
   };
 
   return (
-    <BaseLayout
-      logoLabel={logoLabel}
-      navList={navList}
-      className={classes.SignUp}
-    >
+    <BaseLayout className={classes.SignUp}>
       <h2>회원가입 페이지</h2>
 
       <form
