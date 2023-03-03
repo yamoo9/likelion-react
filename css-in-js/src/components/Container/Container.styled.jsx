@@ -8,5 +8,7 @@ const config = {
 export const Container = styled.div`
   width: clamp(${config.minWidth}, 90vw, ${config.maxWidth});
   margin-left: auto;
-  margin-rigth: auto;
+  margin-right: auto;
 `;
+
+Container.displayName = 'Container';
