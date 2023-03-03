@@ -3,8 +3,8 @@ import classes from './App.module.scss';
 /* Pages -------------------------------------------------------------------- */
 
 // import Home from '@/pages/Home/Home';
-// import SignIn from '@/pages/SignIn/SignIn';
-import SignUp from '@/pages/SignUp/SignUp';
+import SignIn from '@/pages/SignIn/SignIn';
+// import SignUp from '@/pages/SignUp/SignUp';
 
 /* Component ---------------------------------------------------------------- */
 
@@ -14,18 +14,18 @@ import { useMemo, useState } from 'react';
 function App() {
   const [authUser, setAuthUser] = useState(null);
 
-  const authValue = useMemo(
-    () => ({
-      authUser, // state
-      updateAuthUser: setAuthUser, // update function
-    }),
-    [authUser]
-  );
-
   return (
-    <AuthUserContext.Provider value={authValue}>
+    <AuthUserContext.Provider
+      value={useMemo(
+        () => ({
+          authUser,
+          updateAuthUser: setAuthUser,
+        }),
+        [authUser]
+      )}
+    >
       <div className={classes.App}>
-        <SignUp />
+        <SignIn />
       </div>
     </AuthUserContext.Provider>
   );
