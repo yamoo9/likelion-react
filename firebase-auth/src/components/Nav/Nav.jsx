@@ -1,6 +1,7 @@
-import { arrayOf, string, oneOf, shape, bool, exact } from 'prop-types';
+import { string, oneOf, bool, exact } from 'prop-types';
 import { A11yHidden } from '@/components';
 import classes from './Nav.module.scss';
+import { useGlobalState } from '@/contexts/GlobalState';
 
 /* Types -------------------------------------------------------------------- */
 
@@ -8,18 +9,11 @@ const HeadlineAsType = oneOf(['h2', 'h3', 'h4', 'h5', 'h6']);
 
 const HeadlineType = string.isRequired;
 
-const NavigationItemType = shape({
-  id: string,
-  to: string,
-  text: string,
-  active: bool,
-});
-
-const NavigationListType = arrayOf(NavigationItemType).isRequired;
-
 /* Component ---------------------------------------------------------------- */
 
-export function Nav({ as, headline, list, ...restProps }) {
+export function Nav({ as, headline, ...restProps }) {
+  const { navList: list } = useGlobalState();
+
   return (
     <nav className={classes.Nav} {...restProps}>
       <A11yHidden as={as}>{headline}</A11yHidden>
@@ -61,5 +55,4 @@ Nav.defaultProps = {
 Nav.propTypes = {
   as: HeadlineAsType,
   headline: HeadlineType,
-  list: NavigationListType,
 };

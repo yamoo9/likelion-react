@@ -1,5 +1,4 @@
 import classes from './App.module.scss';
-import { GlobalStateProvider } from '@/contexts/GlobalState';
 
 /* Pages -------------------------------------------------------------------- */
 
@@ -11,11 +10,9 @@ import SignUp from '@/pages/SignUp/SignUp';
 
 function App() {
   return (
-    <GlobalStateProvider>
-      <div className={classes.App}>
-        <SignUp />
-      </div>
-    </GlobalStateProvider>
+    <div className={classes.App}>
+      <SignUp />
+    </div>
   );
 }
 
