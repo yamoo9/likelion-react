@@ -5,6 +5,8 @@ import { getPathFromBaseUrl as baseURL } from '@/utils';
 // 컨텍스트 객체 생성
 const GlobalStateContext = createContext();
 
+GlobalStateContext.displayName = 'GlobalStateContext';
+
 // 생성된 컨텍스트는 컨텍스트.프로바이더 컴포넌트를 사용할 수 있게 한다.
 // 컨텍스트.프로바이더 컴포넌트를 감싸는 컴포넌트를 작성할 수 있다.
 

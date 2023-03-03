@@ -8,11 +8,26 @@ import SignUp from '@/pages/SignUp/SignUp';
 
 /* Component ---------------------------------------------------------------- */
 
+import { AuthUserContext } from '@/contexts/AuthUser';
+import { useMemo, useState } from 'react';
+
 function App() {
+  const [authUser, setAuthUser] = useState(null);
+
+  const authValue = useMemo(
+    () => ({
+      authUser, // state
+      updateAuthUser: setAuthUser, // update function
+    }),
+    [authUser]
+  );
+
   return (
-    <div className={classes.App}>
-      <SignUp />
-    </div>
+    <AuthUserContext.Provider value={authValue}>
+      <div className={classes.App}>
+        <SignUp />
+      </div>
+    </AuthUserContext.Provider>
   );
 }
 
