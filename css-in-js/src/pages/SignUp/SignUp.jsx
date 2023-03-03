@@ -2,6 +2,12 @@ import { useRef } from 'react';
 import { BaseLayout, FormInput, Button } from '@/components';
 import classes from './SignUp.module.scss';
 import { useDocumentTitle } from '@/hooks';
+import {
+  useSignUp,
+  useAuthState,
+  useSignOut,
+  useSignIn,
+} from '@/firebase/auth';
 
 const initialFormState = {
   name: '',
@@ -15,13 +21,23 @@ const initialFormState = {
 export default function SignUp() {
   useDocumentTitle('회원가입 → Likelion 4th');
 
+  const { signUp } = useSignUp(true);
+
+  const { signIn } = useSignIn();
+
+  const { isLoading, error, user } = useAuthState();
+
+  const { signOut } = useSignOut();
+
   /* -------------------------------------------------------------------------- */
 
   const formStateRef = useRef(initialFormState);
 
   const handleReset = (e) => {
     e.preventDefault();
-    console.log('reset');
+    // console.log('reset');
+    console.log('로그아웃');
+    signOut();
   };
 
   const handleSubmit = async (e) => {
@@ -40,13 +56,29 @@ export default function SignUp() {
       return;
     }
 
-    console.log({ name, email, password, passwordConfirm });
+    // console.log({ name, email, password, passwordConfirm });
+    await signUp(email, password, name);
+  };
+
+  const handleSignIn = async () => {
+    const { email, password } = formStateRef.current;
+    await signIn(email, password);
   };
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     formStateRef.current[name] = value;
   };
+
+  if (isLoading) {
+    return <div role="alert">페이지를 준비 중입니다.</div>;
+  }
+
+  if (error) {
+    return <div role="alert">오류! {error.message}</div>;
+  }
+
+  console.log('관찰 중인 인증 사용자\n', user);
 
   return (
     <BaseLayout className={classes.SignUp}>
@@ -82,8 +114,11 @@ export default function SignUp() {
 
         <div className={classes.group}>
           <Button type="submit">회원가입</Button>
+          <Button type="button" onClick={handleSignIn}>
+            로그인
+          </Button>
           <Button secondary type="reset">
-            초기화
+            로그아웃
           </Button>
         </div>
       </form>
