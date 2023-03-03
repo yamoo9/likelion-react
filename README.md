@@ -1,13 +1,15 @@
 ###### EUID ╳ Likelion
 
-# Firebase 인증(Authentication)
+# CSS in JS
 
-Firebase 백엔드 서비스를 이용해 회원가입, 로그인, 로그아웃 절차를 학습합니다.
+styled-components를 사용해 React 스타일 컴포넌트를 활용하는 방법을 학습합니다.
+
+참고 [Vite + styled-componetns 구성](https://euid.notion.site/CSS-in-JS-0d8f409e35584c48aeb480635e141800)
 
 ## 학습 저장소 자료
 
 자료 복사는 [degit](https://github.com/Rich-Harris/degit#readme) 명령을 사용하세요.
 
 ```sh
-degit yamoo9/likelion-react#08-firebase-auth 08-firebase-auth
+degit yamoo9/likelion-react#09-css-in-js 09-css-in-js
 ```

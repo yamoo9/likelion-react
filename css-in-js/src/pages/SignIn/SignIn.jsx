@@ -1,9 +1,10 @@
 import classes from './SignIn.module.scss';
 import { BaseLayout, FormInput, Button } from '@/components';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 import { useSignIn, useAuthState, useSignOut } from '@/firebase/auth';
 import { useRef } from 'react';
+import { useDocumentTitle } from '@/hooks';
 
 const Loading = styled.figure`
   margin: 0;
@@ -41,6 +42,8 @@ const initialFormState = {
 };
 
 export default function SignIn() {
+  useDocumentTitle('로그인 → Likelion 4th');
+
   const formStateRef = useRef(initialFormState);
 
   const { isLoading: isLoadingSignIn, signIn } = useSignIn();

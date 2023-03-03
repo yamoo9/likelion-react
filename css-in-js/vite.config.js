@@ -1,23 +1,10 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'node:path';
 import react from '@vitejs/plugin-react-swc';
-
-const babelConfig = {
-  plugins: [
-    'babel-plugin-styled-components',
-    {
-      displayName: true,
-      fileName: false,
-    },
-  ],
-};
+import macro from 'vite-plugin-babel-macros';
 
 export default defineConfig({
-  plugins: [
-    react({
-      babel: babelConfig,
-    }),
-  ],
+  plugins: [macro(), react()],
   resolve: {
     alias: [{ find: '@', replacement: resolve(__dirname, './src') }],
   },
