@@ -3,7 +3,7 @@
 // --------------------------------------------------------
 // - [x] Context 객체 생성
 // - [x] Context.Provider
-// - [ ] useContext 훅
+// - [x] useContext 훅
 // --------------------------------------------------------
 
 import { createContext } from 'react';
