@@ -4,6 +4,8 @@ import classes from './Nav.module.scss';
 import { useGlobalState } from '@/contexts/GlobalState';
 import { NavLink } from 'react-router-dom';
 
+console.log(classes);
+
 /* Types -------------------------------------------------------------------- */
 
 const HeadlineAsType = oneOf(['h2', 'h3', 'h4', 'h5', 'h6']);
@@ -31,7 +33,12 @@ export function Nav({ as, headline, ...restProps }) {
 Nav.Item = function NavItem({ item }) {
   return (
     <li>
-      <NavLink to={item.to}>{item.text}</NavLink>
+      <NavLink
+        to={item.to}
+        className={({ isActive }) => isActive && classes.active}
+      >
+        {item.text}
+      </NavLink>
     </li>
   );
 };
