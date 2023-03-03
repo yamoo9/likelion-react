@@ -1,13 +1,13 @@
 import classes from './Footer.module.scss';
 import { Container } from '@/components';
-import { useContext, useRef } from 'react';
-import { AuthUserContext } from '@/contexts/AuthUser';
+import { useRef } from 'react';
+import { useAuthUser } from '@/contexts/AuthUser';
 
 /* Component ---------------------------------------------------------------- */
 
 export function Footer() {
   const emailRef = useRef(null);
-  const { updateAuthUser } = useContext(AuthUserContext);
+  const { updateAuthUser } = useAuthUser();
 
   const handleSignIn = () => {
     const { value } = emailRef.current;
@@ -25,7 +25,7 @@ export function Footer() {
   return (
     <footer className={classes.Footer}>
       <Container>
-        <input type="email" ref={emailRef} />
+        <input type="email" ref={emailRef} aria-label="사용자 이메일" />
 
         <button type="button" onClick={handleSignIn}>
           로그인

@@ -12,11 +12,14 @@
 // import { StrictMode } from 'react';
 import '@/styles/global.scss';
 import { createRoot } from 'react-dom/client';
+import { AuthUserProvider } from './contexts/AuthUser';
 import { GlobalStateProvider } from '@/contexts/GlobalState';
 import App from '@/app/App';
 
 createRoot(document.getElementById('root')).render(
-  <GlobalStateProvider>
-    <App />
-  </GlobalStateProvider>
+  <AuthUserProvider>
+    <GlobalStateProvider>
+      <App />
+    </GlobalStateProvider>
+  </AuthUserProvider>
 );
