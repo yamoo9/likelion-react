@@ -11,13 +11,20 @@ import { db } from './index';
  *   updateData: (documentKey: string; data: any) => Promise<any>
  * }}
  */
-export function useUpdateData(collectionKey) {
+export function useUpdateData(collectionKey, documentKey) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  if (collectionKey.includes('/') && !documentKey) {
+    const collectionAndDocumentKey = collectionKey.split('/');
+    collectionKey = collectionAndDocumentKey[0];
+    documentKey = collectionAndDocumentKey[1];
+  }
+  
   const updateData = useCallback(
-    async (documentKey, data) => {
-      const documentRef = doc(db, collectionKey, documentKey);
+    async (data, docKey) => {
+      docKey = docKey ?? documentKey;
+      const documentRef = doc(db, collectionKey, docKey);
 
       setIsLoading(true);
 
@@ -29,7 +36,7 @@ export function useUpdateData(collectionKey) {
         setIsLoading(false);
       }
     },
-    [collectionKey]
+    [collectionKey, documentKey]
   );
 
   return useMemo(
