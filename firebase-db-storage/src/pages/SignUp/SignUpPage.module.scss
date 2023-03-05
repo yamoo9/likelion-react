@@ -1,0 +1,33 @@
+.SignUpPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+
+  margin-top: 100px;
+
+  h2 {
+    color: #67aed4;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.form {
+  display: flex;
+  gap: 8px;
+  flex-flow: column;
+  align-items: center;
+}
+
+.group {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
