@@ -7,6 +7,7 @@ export * from './Container/Container.styled';
 
 export * from './Logo/Logo';
 export * from './Button/Button';
+export * from './TodoList/TodoList';
 export * from './HomeLink/HomeLink';
 export * from './FormInput/FormInput';
 export * from './A11yHidden/A11yHidden';

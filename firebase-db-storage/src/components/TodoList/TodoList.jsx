@@ -1,3 +1,14 @@
+import { StyledTodoList } from './TodoList.styled';
+
+/* Component ---------------------------------------------------------------- */
+
 export function TodoList() {
-  return <ul></ul>;
+  return (
+    <StyledTodoList>
+      {/* TodoListFilters */}
+      {/* TodoItemCreator */}
+      {/* TodoItem */}
+      {/* TodoListStats */}
+    </StyledTodoList>
+  );
 }
