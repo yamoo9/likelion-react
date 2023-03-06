@@ -1,9 +1,14 @@
 ###### EUID ╳ Likelion
 
-# React 프로그래밍
+# Recoil
 
-멋쟁이 사자처럼 React 학습 저장소
+리코일(Recoil)을 사용해 React 앱 상태를 관리하는 방법을 학습합니다.
 
-- [학습 커리큘럼](https://github.com/users/yamoo9/projects/3/views/1)
-- [학습 진행상황](https://github.com/users/yamoo9/projects/3/views/2)
-- [학습 Q/A](https://github.com/yamoo9/likelion-FEQA/issues?q=is%3Aissue+is%3Aclosed)
+- [ ] Atoms
+- [ ] Selectors
+- [ ] AtomFamily
+- [ ] SelectorFamily
+- [ ] useRecoilState
+- [ ] useRecoilValue
+- [ ] useSetRecoilState
+- [ ] useRecoilValueLoadable
