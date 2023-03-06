@@ -4,23 +4,6 @@ import TodoItemCreator from './ TodoItemCreator';
 
 /* Component ---------------------------------------------------------------- */
 
-// Reducer Function
-// 액션(객체: { type: string; payload?: unknown; })
-const todoListReducer = (
-  state,
-  action /* { type: string; payload?: unknown; } */
-) => {
-  console.log(action);
-
-  // Add Todo
-  // Edit Todo
-  // Delete Todo
-
-  // new State
-
-  return state;
-};
-
 const initialTodoListState = [
   {
     id: 'todo-1',
@@ -32,35 +15,68 @@ const initialTodoListState = [
   },
 ];
 
-// const lazyInit = (initialState) => {
-//   // side effects
-//   // 파생 상태(dervied State)
-//   // return initialState
-// };
+// Reducer Function
+// 액션(객체: { type: string; payload?: unknown; })
+const todoListReducer = (state, action) => {
+  switch (action.type) {
+    default:
+      return state;
+    case 'todoList/add':
+      console.log('todoList/add');
+      return [...state, action.payload];
+    case 'todoList/toggle':
+      console.log('todoList/toggle');
+      return state;
+    case 'todoList/edit':
+      return state.map(({ id, data }) => {
+        if (id === action.payload.id) {
+          return { id, data: { ...data, ...action.payload.data } };
+        }
+        return { id, data };
+      });
+    case 'todoList/delete':
+      return state.filter(({ id }) => id !== action.payload);
+  }
+};
 
 export function TodoList() {
-  // const [state, setState] = useState();
-  const [todoListState, dispatch /* 알림(상태 업데이트) */] = useReducer(
-    /* 리듀서 함수 */
+  const [todoListState, dispatch] = useReducer(
     todoListReducer,
-    /* 초깃값 (방법 1) */
     initialTodoListState
-    /* 지연된 초기화 */
-    // lazyInit
   );
 
   const addTodo = () => {
-    dispatch({ type: 'todoList/add' });
+    dispatch({
+      type: 'todoList/add',
+      payload: {
+        id: `todo-${todoListState.length + 1}`,
+        data: {
+          isComplete: false,
+          todo: '프로젝트 합리적인 목표 설정',
+        },
+      },
+    });
   };
   const editTodo = () => {
-    dispatch({ type: 'todoList/edit' });
+    dispatch({
+      type: 'todoList/edit',
+      payload: {
+        id: 'todo-2',
+        data: { todo: 'React Router 내일 마스터해봅시다.' },
+      },
+    });
   };
   const deleteTodo = () => {
-    dispatch({ type: 'todoList/delete' });
+    dispatch({ type: 'todoList/delete', payload: /* deleteId */ 'todo-1' });
   };
+
+  console.log(todoListState);
 
   return (
     <StyledTodoList>
+      <p>{todoListState.length}</p>
+      <p>{todoListState.find(({ id }) => id === 'todo-2').data.todo}</p>
+
       <button type="button" onClick={addTodo}>
         할 일 추가
       </button>

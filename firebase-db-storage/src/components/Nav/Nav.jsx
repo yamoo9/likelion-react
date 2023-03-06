@@ -15,11 +15,7 @@ export function Nav({ as, headline, ...restProps }) {
     { id: 'todolist', to: baseURL('todolist'), text: '할 일 목록' },
   ];
 
-  // Firebase auth API -> onAuthStateChanged(auth, (currentUser) => {})
-  // Custom Hook API → useAuthState
   const { user } = useAuthState();
-
-  console.log(user);
 
   return (
     <nav className={classes.Nav} {...restProps}>
