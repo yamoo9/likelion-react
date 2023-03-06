@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
 import classes from './SignInPage.module.scss';
@@ -93,7 +94,8 @@ export default function SignInPage() {
       </form>
 
       <StyledInfo>
-        가입된 계정이 없다면 <a href="/signup">회원가입</a> 먼저 해야 합니다.
+        가입된 계정이 없다면 <Link to="/signup">회원가입</Link> 먼저 해야
+        합니다.
       </StyledInfo>
     </div>
   );

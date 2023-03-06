@@ -1,5 +1,5 @@
 import classes from './App.module.scss';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { BaseLayout } from '@/components';
 
 /* Pages -------------------------------------------------------------------- */
@@ -13,7 +13,7 @@ import TodoListPage from '@/pages/TodoList/TodoListPage';
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <div className={classes.App}>
         <BaseLayout>
           <Routes>
@@ -24,7 +24,7 @@ function App() {
           </Routes>
         </BaseLayout>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 
