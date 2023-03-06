@@ -27,7 +27,7 @@ export default function SignInPage() {
     e.preventDefault();
 
     const { email, password } = formStateRef.current;
-    console.log({ email, password });
+    // console.log({ email, password });
 
     await signIn(email, password);
   };

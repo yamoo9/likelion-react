@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import classes from './Nav.module.scss';
 import { A11yHidden } from '@/components';
 import { getPathFromBaseUrl as baseURL } from '@/utils';
+import { useAuthState } from '@/firebase/auth';
 
 /* Component ---------------------------------------------------------------- */
 
@@ -14,13 +15,21 @@ export function Nav({ as, headline, ...restProps }) {
     { id: 'todolist', to: baseURL('todolist'), text: '할 일 목록' },
   ];
 
+  // Firebase auth API -> onAuthStateChanged(auth, (currentUser) => {})
+  // Custom Hook API → useAuthState
+  const { user } = useAuthState();
+
+  console.log(user);
+
   return (
     <nav className={classes.Nav} {...restProps}>
       <A11yHidden as={as}>{headline}</A11yHidden>
       <ul>
-        {list.map((item) => (
-          <Nav.Item key={item.id} item={item} />
-        ))}
+        {list.map((item) => {
+          if (!item.id.includes('todolist') || user) {
+            return <Nav.Item key={item.id} item={item} />;
+          }
+        })}
       </ul>
     </nav>
   );
