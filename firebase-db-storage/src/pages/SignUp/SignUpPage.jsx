@@ -1,4 +1,6 @@
 import { useRef } from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { FormInput, Button } from '@/components';
 import { useSignUp, useAuthState } from '@/firebase/auth';
 import classes from './SignUpPage.module.scss';
@@ -101,6 +103,10 @@ export default function SignUpPage() {
           </Button>
         </div>
       </form>
+      <StyledParagraph>
+        이미 가입한 사용자라면{' '}
+        <StyledSignInLink to="/signin">로그인</StyledSignInLink>하세요.
+      </StyledParagraph>
     </div>
   );
 }
@@ -108,7 +114,16 @@ export default function SignUpPage() {
 // ----------------------------------------------------------------------------------
 // ✅ [TODO]
 // ----------------------------------------------------------------------------------
-// - [ ] 회원가입 페이지 컴포넌트 하단에 로그인 페이지로 이동하는 링크를 추가합니다.
-// - [ ] HTML <a> 요소는 서버에 href 값과 일치하는 경로로 새 페이지 요청합니다.
+// - [x] 회원가입 페이지 컴포넌트 하단에 로그인 페이지로 이동하는 링크를 추가합니다.
+// - [x] HTML <a> 요소는 서버에 href 값과 일치하는 경로로 새 페이지 요청합니다.
 //       React Router의 <Link /> 컴포넌트를 사용하면 `to` prop에 매칭되는 경로로 페이지를 전환합니다.
 // ----------------------------------------------------------------------------------
+
+const StyledParagraph = styled.p`
+  margin-top: 40px;
+  color: #787878;
+`;
+
+const StyledSignInLink = styled(Link)`
+  color: #30b6ff;
+`;

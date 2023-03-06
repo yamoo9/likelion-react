@@ -9,6 +9,7 @@ export function HomeLink({ children }) {
   return (
     <h1 className={classes.HomeLink}>
       <Link to={getPathFromBaseUrl()}>{children}</Link>
+      {/* <a href={getPathFromBaseUrl()}>{children}</a> */}
     </h1>
   );
 }
