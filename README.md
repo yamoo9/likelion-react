@@ -1,9 +1,10 @@
 ###### EUID ╳ Likelion
 
-# React 프로그래밍
+# React Router
 
-멋쟁이 사자처럼 React 학습 저장소
+리액트 라우터(v 6.4+)를 사용해 싱글 페이지 애플리케이션을 제작하는 학습을 진행합니다.
 
-- [학습 커리큘럼](https://github.com/users/yamoo9/projects/3/views/1)
-- [학습 진행상황](https://github.com/users/yamoo9/projects/3/views/2)
-- [학습 Q/A](https://github.com/yamoo9/likelion-FEQA/issues?q=is%3Aissue+is%3Aclosed)
+<img 
+  height="400" 
+  src="https://user-images.githubusercontent.com/1850554/212802297-7b1505b2-deb5-41dd-859f-af92d95c9e95.png" alt 
+/>

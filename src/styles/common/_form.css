@@ -1,0 +1,3 @@
+form[action$='destroy'] button {
+  color: #f44250;
+}
