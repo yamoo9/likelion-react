@@ -1,4 +1,5 @@
 import { PropTypes } from 'prop-types';
+import { Link } from 'react-router-dom';
 import classes from './HomeLink.module.scss';
 import { getPathFromBaseUrl } from '@/utils';
 
@@ -7,7 +8,7 @@ import { getPathFromBaseUrl } from '@/utils';
 export function HomeLink({ children }) {
   return (
     <h1 className={classes.HomeLink}>
-      <a href={getPathFromBaseUrl()}>{children}</a>
+      <Link to={getPathFromBaseUrl()}>{children}</Link>
     </h1>
   );
 }
