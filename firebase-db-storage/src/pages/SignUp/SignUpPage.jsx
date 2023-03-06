@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import { FormInput, Button } from '@/components';
 import { useSignUp, useAuthState } from '@/firebase/auth';
@@ -120,8 +120,9 @@ export default function SignUpPage() {
 // ----------------------------------------------------------------------------------
 
 const StyledParagraph = styled.p`
-  margin-top: 40px;
+  margin-top: 20px;
   color: #787878;
+  font-size: 14px;
 `;
 
 const StyledSignInLink = styled(Link)`
