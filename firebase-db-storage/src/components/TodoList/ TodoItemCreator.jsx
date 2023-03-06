@@ -2,8 +2,9 @@ import { A11yHidden } from '@/components';
 import { useId, useState } from 'react';
 import { StyledCreatorContainer } from './styled';
 import debounce from 'lodash.debounce';
+import { PropTypes } from 'prop-types';
 
-export default function TodoItemCreator() {
+export default function TodoItemCreator({ addTodo }) {
   const id = useId();
   const [inputTodo, setInputTodo] = useState('할 일을 입력하세요.');
 
@@ -13,7 +14,8 @@ export default function TodoItemCreator() {
 
   const handleAddTodo = () => {
     console.log('할 일 추가 기능 구현');
-    console.log(inputTodo);
+    addTodo(inputTodo);
+    setInputTodo('');
   };
 
   return (
@@ -34,3 +36,7 @@ export default function TodoItemCreator() {
     </StyledCreatorContainer>
   );
 }
+
+TodoItemCreator.propTypes = {
+  addTodo: PropTypes.func,
+};

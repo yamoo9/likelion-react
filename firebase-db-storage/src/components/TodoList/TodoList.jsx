@@ -45,18 +45,19 @@ export function TodoList() {
     initialTodoListState
   );
 
-  const addTodo = () => {
+  const addTodo = (newTodoItem) => {
     dispatch({
       type: 'todoList/add',
       payload: {
         id: `todo-${todoListState.length + 1}`,
         data: {
+          todo: newTodoItem,
           isComplete: false,
-          todo: '프로젝트 합리적인 목표 설정',
         },
       },
     });
   };
+
   const editTodo = () => {
     dispatch({
       type: 'todoList/edit',
@@ -66,16 +67,14 @@ export function TodoList() {
       },
     });
   };
+
   const deleteTodo = () => {
     dispatch({ type: 'todoList/delete', payload: /* deleteId */ 'todo-1' });
   };
 
-  console.log(todoListState);
-
   return (
     <StyledTodoList>
       <p>{todoListState.length}</p>
-      <p>{todoListState.find(({ id }) => id === 'todo-2').data.todo}</p>
 
       <button type="button" onClick={addTodo}>
         할 일 추가
@@ -87,7 +86,7 @@ export function TodoList() {
         할 일 삭제
       </button>
       {/* TodoListFilters */}
-      <TodoItemCreator />
+      <TodoItemCreator addTodo={addTodo} />
       {/* TodoItem */}
       {/* TodoListStats */}
     </StyledTodoList>
