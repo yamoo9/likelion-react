@@ -11,7 +11,6 @@ import {
   orderBy,
   serverTimestamp,
   onSnapshot,
-  limit,
 } from 'firebase/firestore';
 import { db } from '@/firebase/firestore';
 
@@ -134,7 +133,7 @@ export const deleteTodoItem = async (deleteId) => {
  */
 export const onChangeTodoList = (callback) => {
   const todoListCollectionRef = collection(db, COLLECTION_KEY);
-  const q = query(todoListCollectionRef, orderBy('createAt', 'asc'), limit(20));
+  const q = query(todoListCollectionRef, orderBy('createAt', 'desc'));
 
   // 실시간 업데이트 가져오기
   // 참고: https://firebase.google.com/docs/firestore/query-data/listen?hl=ko

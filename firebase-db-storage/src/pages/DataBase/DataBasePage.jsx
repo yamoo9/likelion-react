@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 import { useLayoutEffect, useState } from 'react';
-import { onChangeTodoList } from '@/todoList/utils';
+import { onChangeTodoList, updateTodoItem } from '@/todoList/utils';
 
 export default function DataBasePage() {
   const [todoList, setTodoList] = useState([]);
@@ -16,8 +16,12 @@ export default function DataBasePage() {
     };
   }, []);
 
-  const handleToggle = (id) => () => {
-    console.log(id);
+  const handleToggle = (id, data) => () => {
+    console.log(id, data);
+    updateTodoItem(id, {
+      ...data,
+      isComplete: !data.isComplete,
+    });
   };
 
   return (
@@ -34,7 +38,7 @@ export default function DataBasePage() {
                 <input
                   type="checkbox"
                   defaultChecked={data.isComplete}
-                  onChange={handleToggle(id)}
+                  onChange={handleToggle(id, data)}
                 />{' '}
                 {data.todo}
               </li>
