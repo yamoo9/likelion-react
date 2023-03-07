@@ -1,6 +1,10 @@
 import styled from 'styled-components/macro';
 import { useLayoutEffect, useState } from 'react';
-import { onChangeTodoList, updateTodoItem } from '@/todoList/utils';
+import {
+  deleteTodoItem,
+  onChangeTodoList,
+  updateTodoItem,
+} from '@/todoList/utils';
 
 export default function DataBasePage() {
   const [todoList, setTodoList] = useState([]);
@@ -41,6 +45,14 @@ export default function DataBasePage() {
                   onChange={handleToggle(id, data)}
                 />{' '}
                 {data.todo}
+                <button
+                  type="button"
+                  onClick={() => {
+                    deleteTodoItem(id);
+                  }}
+                >
+                  삭제
+                </button>
               </li>
             );
           })}

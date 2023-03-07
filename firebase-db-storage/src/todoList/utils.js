@@ -129,7 +129,7 @@ export const deleteTodoItem = async (deleteId) => {
 
 /**
  * 실시간 업데이트 가져오는 유틸리티 함수
- * @param {(data, ) => void} callback 콜백 함수
+ * @param {(data) => void} callback 콜백 함수
  */
 export const onChangeTodoList = (callback) => {
   const todoListCollectionRef = collection(db, COLLECTION_KEY);
