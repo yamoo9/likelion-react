@@ -5,6 +5,7 @@ import { FormInput, Button } from '@/components';
 import { useSignUp, useAuthState } from '@/firebase/auth';
 import classes from './SignUpPage.module.scss';
 import { useDocumentTitle } from '@/hooks';
+import { useCreateAuthUser } from '@/firebase/firestore';
 
 const initialFormState = {
   name: '',
@@ -19,7 +20,7 @@ export default function SignUpPage() {
   useDocumentTitle('회원가입 → Likelion 4th');
 
   const { signUp } = useSignUp();
-
+  const { createAuthUser } = useCreateAuthUser();
   const { isLoading, error, user } = useAuthState();
 
   console.log(user);
@@ -48,7 +49,12 @@ export default function SignUpPage() {
       return;
     }
 
-    await signUp(email, password, name);
+    const user = await signUp(email, password, name);
+    await createAuthUser(user, {
+      photoURL: 'https://avatars.githubusercontent.com/u/108564335?v=4',
+    });
+
+    console.log('회원가입 및 users 콜렉션에 user 데이터 생성');
   };
 
   const handleChangeInput = (e) => {
