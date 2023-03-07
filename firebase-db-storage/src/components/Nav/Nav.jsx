@@ -13,6 +13,7 @@ export function Nav({ as, headline, ...restProps }) {
     { id: 'home', to: baseURL(), text: '홈' },
     { id: 'signin', to: baseURL('signin'), text: '로그인' },
     { id: 'todolist', to: baseURL('todolist'), text: '할 일 목록' },
+    { id: 'storage', to: baseURL('storage'), text: '파일 업로드' },
   ];
 
   const { user } = useAuthState();
