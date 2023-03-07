@@ -12,6 +12,7 @@ import SignInPage from '@/pages/SignIn/SignInPage';
 import SignUpPage from '@/pages/SignUp/SignUpPage';
 import TodoListPage from '@/pages/TodoList/TodoListPage';
 import UploadFilesPage from '@/pages/UploadFiles/UploadFilesPage';
+import DataBasePage from '@/pages/DataBase/DataBasePage';
 import NotFoundPage from '@/pages/NotFound/NotFoundPage';
 
 /* Component ---------------------------------------------------------------- */
@@ -28,6 +29,7 @@ function App() {
             <Route path="/signin" element={<SignInPage />} />
             <Route path="/todolist" element={<TodoListPage />} />
             <Route path="/storage" element={<UploadFilesPage />} />
+            <Route path="/database" element={<DataBasePage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </BaseLayout>
