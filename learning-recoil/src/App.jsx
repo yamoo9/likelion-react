@@ -1,7 +1,7 @@
 import './App.css';
-import { useRecoilState } from 'recoil';
-import { countState } from './@store/countState';
 import { useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { countState } from '@/@store/countState';
 
 function App() {
   const [count, setCount] = useRecoilState(countState);
