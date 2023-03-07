@@ -6,11 +6,11 @@ import { db } from './index';
  * Firestore 데이터 일괄 쓰기 훅
  * @param {string} collectionKey 콜렉션 키
  * @param {string} documentKey 도큐멘트 키, 옵션(기본 값: 'key')
- * @returns { 
- *   isLoading: boolean; 
- *   error: boolean; 
- *   writeBatchData: (dataList) => void 
- * }
+ * @returns {{
+ *   isLoading: boolean;
+ *   error: boolean;
+ *   writeBatchData: (dataList) => void
+ * }}
  */
 export function useWriteBatchData(collectionKey, documentKey = 'key') {
   const [isLoading, setIsLoading] = useState(false);
