@@ -3,8 +3,7 @@ import { playListState } from './@store/playListState';
 
 export default function PlayListDisplay() {
   const [playList, setPlaylist] = useRecoilState(playListState);
-
-  const handleDeleteGenre = (index) => () => {
+  const handleDeleteGenre = (index) => {
     setPlaylist(playList.filter((_, i) => i !== index));
   };
 
@@ -15,7 +14,12 @@ export default function PlayListDisplay() {
         {playList.map((genre, index) => (
           <li key={index} style={listStyle}>
             {genre}
-            <button type="button" onClick={handleDeleteGenre(index)}>
+            <button
+              type="button"
+              onClick={() => {
+                handleDeleteGenre(index);
+              }}
+            >
               삭제
             </button>
           </li>

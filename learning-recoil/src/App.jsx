@@ -1,10 +1,14 @@
 import './App.css';
-import PlayListDisplay from './PlayListDisplay';
+import AppFooter from './AppFooter';
+import AppHeader from './AppHeader';
+import PlayList from './PlayList';
 
 function App() {
   return (
     <div className="App">
-      <PlayListDisplay />
+      <AppHeader />
+      <PlayList />
+      <AppFooter />
     </div>
   );
 }
