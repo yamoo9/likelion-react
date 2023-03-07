@@ -44,4 +44,5 @@
 .App {
   display: flex;
   gap: 20px;
+  text-align: left;
 }
