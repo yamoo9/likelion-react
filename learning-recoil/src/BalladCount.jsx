@@ -1,3 +1,8 @@
+import { useRecoilValue } from 'recoil';
+import { balladCountState } from '@/@store/balladCountState';
+
 export default function BalladCount() {
-  return <span>BalladCount</span>;
+  const balladCount = useRecoilValue(balladCountState);
+
+  return <span>({balladCount})</span>;
 }
