@@ -11,6 +11,7 @@ import {
   orderBy,
   serverTimestamp,
   onSnapshot,
+  limit,
 } from 'firebase/firestore';
 import { db } from '@/firebase/firestore';
 
@@ -131,13 +132,13 @@ export const deleteTodoItem = async (deleteId) => {
  * 실시간 업데이트 가져오는 유틸리티 함수
  * @param {(data, ) => void} callback 콜백 함수
  */
-export const onChangeTodoList = async (callback) => {
+export const onChangeTodoList = (callback) => {
   const todoListCollectionRef = collection(db, COLLECTION_KEY);
-  const q = query(todoListCollectionRef, orderBy('createAt', 'desc'));
+  const q = query(todoListCollectionRef, orderBy('createAt', 'asc'), limit(20));
 
   // 실시간 업데이트 가져오기
   // 참고: https://firebase.google.com/docs/firestore/query-data/listen?hl=ko
-  onSnapshot(q, (querySnapshot) => {
+  const unsubscribe = onSnapshot(q, (querySnapshot) => {
     const data = [];
 
     querySnapshot.forEach((doc) => {
@@ -146,4 +147,6 @@ export const onChangeTodoList = async (callback) => {
 
     callback(data);
   });
+
+  return unsubscribe;
 };
