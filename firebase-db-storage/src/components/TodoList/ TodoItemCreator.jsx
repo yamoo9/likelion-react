@@ -1,6 +1,6 @@
 import { A11yHidden } from '@/components';
 import { useId, useState } from 'react';
-import { StyledCreatorContainer } from './styled';
+import { StyledCreatorContainer } from './TodoList.styled';
 import debounce from 'lodash.debounce';
 import { PropTypes } from 'prop-types';
 

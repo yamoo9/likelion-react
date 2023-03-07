@@ -1,43 +1,15 @@
 import { useReducer } from 'react';
-import { StyledTodoList } from './styled';
+import { StyledTodoList } from './TodoList.styled';
 import TodoItemCreator from './ TodoItemCreator';
+import {
+  todoListReducer,
+  initialTodoListState,
+  addTodo as addTodoCreator,
+  editTodo as editTodoCreator,
+  deleteTodo as deleteTodoCreator,
+} from './TodoList.slice';
 
 /* Component ---------------------------------------------------------------- */
-
-const initialTodoListState = [
-  {
-    id: 'todo-1',
-    data: { todo: 'useReducer가 배우고 싶어요', isComplete: false },
-  },
-  {
-    id: 'todo-2',
-    data: { todo: 'Recoil도 배우고 싶어요', isComplete: false },
-  },
-];
-
-// Reducer Function
-// 액션(객체: { type: string; payload?: unknown; })
-const todoListReducer = (state, action) => {
-  switch (action.type) {
-    default:
-      return state;
-    case 'todoList/add':
-      console.log('todoList/add');
-      return [...state, action.payload];
-    case 'todoList/toggle':
-      console.log('todoList/toggle');
-      return state;
-    case 'todoList/edit':
-      return state.map(({ id, data }) => {
-        if (id === action.payload.id) {
-          return { id, data: { ...data, ...action.payload.data } };
-        }
-        return { id, data };
-      });
-    case 'todoList/delete':
-      return state.filter(({ id }) => id !== action.payload);
-  }
-};
 
 export function TodoList() {
   const [todoListState, dispatch] = useReducer(
@@ -46,30 +18,17 @@ export function TodoList() {
   );
 
   const addTodo = (newTodoItem) => {
-    dispatch({
-      type: 'todoList/add',
-      payload: {
-        id: `todo-${todoListState.length + 1}`,
-        data: {
-          todo: newTodoItem,
-          isComplete: false,
-        },
-      },
-    });
+    dispatch(addTodoCreator(newTodoItem, todoListState.length + 1));
   };
 
   const editTodo = () => {
-    dispatch({
-      type: 'todoList/edit',
-      payload: {
-        id: 'todo-2',
-        data: { todo: 'React Router 내일 마스터해봅시다.' },
-      },
-    });
+    dispatch(
+      editTodoCreator('todo-2', { todo: 'React Router 내일 마스터해봅시다.' })
+    );
   };
 
   const deleteTodo = () => {
-    dispatch({ type: 'todoList/delete', payload: /* deleteId */ 'todo-1' });
+    dispatch(deleteTodoCreator('todo-1'));
   };
 
   return (
