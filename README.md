@@ -11,6 +11,6 @@
 - [x] useRecoilState
 - [x] useRecoilValue
 - [x] useSetRecoilState
-- [ ] useResetRecoilState
-- [ ] useRecoilValueLoadable
+- [x] useResetRecoilState
+- [x] useRecoilValueLoadable
 - [ ] useRecoilCallback
