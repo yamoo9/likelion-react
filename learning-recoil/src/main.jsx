@@ -13,7 +13,7 @@ ReactDOM.createRoot(container).render(
     <RecoilRoot>
       <App />
       <RecoilLogger />
-      <TimeTravelObserver visible shortcut="u" />
+      <TimeTravelObserver />
     </RecoilRoot>
   </>
 );
