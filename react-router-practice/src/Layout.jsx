@@ -13,19 +13,39 @@ export default function Layout({ children }) {
 }
 
 function Header() {
+  const list = [
+    { id: 'welcome', text: '웰컴', href: '/' },
+    { id: 'posts', text: '포스트 리스트', href: '/posts' },
+  ];
   return (
     <header>
       <nav>
         <ul>
-          <li>
-            <NavLink to="/">웰컴</NavLink>
-          </li>
-          <li>
-            <NavLink to="/posts">포스트 리스트</NavLink>
-          </li>
+          {list.map((item) => (
+            <NavList
+              key={item.id}
+              item={item}
+              customActiveClassName="likelion-4th"
+            />
+          ))}
         </ul>
       </nav>
     </header>
+  );
+}
+
+function NavList({ item, customActiveClassName = 'active' }) {
+  return (
+    <li>
+      <NavLink
+        to={item.href}
+        className={({ isActive }) => {
+          return isActive ? customActiveClassName : undefined;
+        }}
+      >
+        {item.text}
+      </NavLink>
+    </li>
   );
 }
 

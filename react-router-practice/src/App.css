@@ -1,3 +1,9 @@
+nav a.active,
+.likelion-4th {
+  font-weight: 900;
+  color:#9d0e45
+}
+
 .App {
   text-align: center;
 }
