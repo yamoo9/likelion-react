@@ -1,5 +1,5 @@
 import { useRecoilValue } from 'recoil';
-import { hiphopCountState } from '@/@store/hiphopCountState';
+import { hiphopCountState } from '@/@store/playListState';
 
 export default function HipHopCount() {
   const hiphopCount = useRecoilValue(hiphopCountState);

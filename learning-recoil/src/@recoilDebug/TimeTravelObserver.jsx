@@ -18,9 +18,12 @@ export default function TimeTravelObserver({
   }, [snapshot]);
 
   useLayoutEffect(() => {
-    document.addEventListener('keyup', (e) => {
-      if (e.shiftKey && e.altKey && e.key.toLowerCase(shortcutKey)) {
-        console.log(`shift + alt + ${shortcutKey}`);
+    document.addEventListener('keydown', (e) => {
+      if (
+        e.shiftKey &&
+        e.altKey &&
+        e.code.toLowerCase().replace(/key/, '') === shortcutKey
+      ) {
         setVisible((visible) => !visible);
       }
     });
