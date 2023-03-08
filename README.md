@@ -1,9 +1,5 @@
 ###### EUID ╳ Likelion
 
-# React 프로그래밍
+# React Router 핵심 요약
 
-멋쟁이 사자처럼 React 학습 저장소
-
-- [학습 커리큘럼](https://github.com/users/yamoo9/projects/3/views/1)
-- [학습 진행상황](https://github.com/users/yamoo9/projects/3/views/2)
-- [학습 Q/A](https://github.com/yamoo9/likelion-FEQA/issues?q=is%3Aissue+is%3Aclosed)
+React Router 기초부터 프로젝트에 필요한 부분까지 학습합니다.
