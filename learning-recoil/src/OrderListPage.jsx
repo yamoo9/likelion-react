@@ -1,8 +1,9 @@
-import { useRecoilValue } from 'recoil';
-import { orderListState } from './@store/orderListState';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { orderListState, selectedOrderId } from './@store/orderListState';
 
 export default function OrderListPage() {
   const orderList = useRecoilValue(orderListState);
+  const setSelectedOrderId = useSetRecoilState(selectedOrderId);
 
   return (
     <div>
@@ -12,6 +13,15 @@ export default function OrderListPage() {
           <li key={id}>
             <h3>{order}</h3>
             <span>{currencyKR(price)}</span>
+
+            <button
+              type="button"
+              onClick={() => {
+                setSelectedOrderId(id);
+              }}
+            >
+              선택
+            </button>
           </li>
         ))}
       </ul>
