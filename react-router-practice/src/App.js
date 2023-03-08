@@ -1,32 +1,33 @@
+import './App.css';
 import { lazy, Suspense } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import './App.css';
+/* Pages -------------------------------------------------------------------- */
 
-import Layout from './Layout';
-
-// Sync (Bundle)
-// import WelcomePage from './WelcomePage';
-
-// Async (Code Splilting)
-// Dynamic Import
-// React.lazy + React.Suspense
+const Layout = lazy(() => import('./Layout'));
 const WelcomePage = lazy(() => import('./WelcomePage'));
 const PostListPage = lazy(() => import('./PostListPage'));
 
 const router = createBrowserRouter([
-  { path: '/', element: <WelcomePage /> },
-  { path: '/posts', element: <PostListPage /> },
+  {
+    path: '/',
+    element: <Layout />,
+    // 중첩 라우팅(nested routing)
+    children: [
+      { index: true, element: <WelcomePage /> },
+      { path: '/posts', element: <PostListPage /> },
+    ],
+  },
 ]);
+
+/* App ---------------------------------------------------------------------- */
 
 function App() {
   return (
     <div className="App">
-      <Layout>
-        <Suspense fallback={<Loading />}>
-          <RouterProvider router={router} />
-        </Suspense>
-      </Layout>
+      <Suspense fallback={<Loading />}>
+        <RouterProvider router={router} />
+      </Suspense>
     </div>
   );
 }
