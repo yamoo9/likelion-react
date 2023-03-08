@@ -1,4 +1,4 @@
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import {
   dollerState,
   exchangeRateState,
@@ -8,7 +8,7 @@ import {
 export default function ExchangePage() {
   const [exchangeRate, setExchangeRate] = useRecoilState(exchangeRateState);
   const [won, setWon] = useRecoilState(wonState);
-  const dollor = useRecoilValue(dollerState);
+  const [dollor, setDoller] = useRecoilState(dollerState);
 
   return (
     <div>
@@ -37,7 +37,13 @@ export default function ExchangePage() {
       <div>
         <label>
           달러(doller)
-          <input type="text" value={dollor} readOnly />
+          <input
+            type="text"
+            value={dollor}
+            onChange={(e) => {
+              setDoller(e.target.value);
+            }}
+          />
         </label>
       </div>
     </div>
