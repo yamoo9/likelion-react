@@ -1,5 +1,5 @@
 import { useRecoilValue } from 'recoil';
-import { balladCountState } from '@/@store/balladCountState';
+import { balladCountState } from '@/@store/playListState';
 
 export default function BalladCount() {
   const balladCount = useRecoilValue(balladCountState);

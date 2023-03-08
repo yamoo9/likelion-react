@@ -24,7 +24,6 @@ export default function TimeTravelObserver({
         e.altKey &&
         e.code.toLowerCase().replace(/key/, '') === shortcutKey
       ) {
-        console.log(`shift + alt + ${shortcutKey}`);
         setVisible((visible) => !visible);
       }
     });
