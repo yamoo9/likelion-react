@@ -2,7 +2,7 @@
 import { RecoilRoot, RecoilEnv } from 'recoil';
 import ReactDOM from 'react-dom/client';
 import { RecoilLogger } from 'recoil-devtools-logger';
-import { TimeTravelObserver } from './@recoilDebug';
+// import { TimeTravelObserver } from './@recoilDebug';
 import App from './App';
 import './index.css';
 
@@ -15,7 +15,7 @@ ReactDOM.createRoot(container).render(
     <RecoilRoot>
       <App />
       <RecoilLogger />
-      <TimeTravelObserver />
+      {/* <TimeTravelObserver /> */}
     </RecoilRoot>
   </>
 );

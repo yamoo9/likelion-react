@@ -5,11 +5,15 @@ import './App.css';
 // import PlayList, { RestPlayListButton } from './PlayList';
 // import ExchangePage from './ExchangePage';
 import OrderListPage from './OrderListPage';
+import OrderItemPage from './OrderItemPage';
 
 function App() {
   return (
     <div className="App">
-      <OrderListPage />
+      <div style={{ display: 'flex', flexFlow: 'column', gap: 40 }}>
+        <OrderListPage />
+        <OrderItemPage />
+      </div>
       {/* <ExchangePage /> */}
       {/* <AppHeader /> */}
       {/* <PlayList /> */}
