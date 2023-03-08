@@ -1,6 +1,11 @@
 import './App.css';
 import { lazy, Suspense } from 'react';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import {
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+} from 'react-router-dom';
 
 /* Pages -------------------------------------------------------------------- */
 
@@ -8,7 +13,8 @@ const Layout = lazy(() => import('./Layout'));
 const WelcomePage = lazy(() => import('./WelcomePage'));
 const PostListPage = lazy(() => import('./PostListPage'));
 
-const router = createBrowserRouter([
+// Object Type: Router
+let router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
@@ -19,6 +25,16 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
+// React Element Type: Router
+router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Layout />}>
+      <Route index element={<WelcomePage />} />
+      <Route path="posts" element={<PostListPage />} />
+    </Route>
+  )
+);
 
 /* App ---------------------------------------------------------------------- */
 
