@@ -19,7 +19,7 @@ function Header() {
   ];
   return (
     <header>
-      <nav>
+      <nav className="gnb">
         <ul>
           {list.map((item) => (
             <NavList

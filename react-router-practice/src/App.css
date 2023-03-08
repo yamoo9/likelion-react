@@ -1,7 +1,40 @@
-nav a.active,
-.likelion-4th {
+body {
+  min-height: 100.3vh;
+  font-size: 12px;
+  padding-top: 90px;
+}
+
+.gnb {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: linear-gradient(to right, rgba(32, 32, 32, 0.95), rgba(81, 55, 55, 0.65));
+  backdrop-filter: blur(2px);
+  color: #fff;
+  padding: 24px;
+  padding-left: 100px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.gnb ul {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  list-style: none;
+  padding-left: 0;
+}
+
+.gnb a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.gnb a.active,
+.gnb .likelion-4th {
   font-weight: 900;
-  color:#9d0e45
+  color:#fc3e87;
 }
 
 .App {
