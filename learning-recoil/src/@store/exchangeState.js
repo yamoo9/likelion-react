@@ -2,7 +2,7 @@ import { atom, selector } from 'recoil';
 
 export const exchangeRateState = atom({
   key: 'exchangeRateState',
-  defaut: 0.00076,
+  default: 0.00076,
 });
 
 export const wonState = atom({
@@ -19,6 +19,6 @@ export const dollerState = selector({
     const won = get(wonState);
     const exchangeRate = get(exchangeRateState);
     const doller = won * exchangeRate;
-    return doller;
+    return doller.toFixed(6);
   },
 });
